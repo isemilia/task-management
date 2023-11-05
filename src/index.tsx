@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import App from './App/App.tsx';
-import theme from './theme/theme.tsx';
+import customTheme from './theme/theme.tsx';
 
 import 'normalize.css';
 import './index.scss';
@@ -16,7 +16,7 @@ import { ThemeProvider } from '@mui/material';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={customTheme}>
       <App />
     </ThemeProvider>
   </React.StrictMode>,

@@ -4,4 +4,5 @@
 - TypeScript 
 - MUI components
 - Drag & Drop (react-dnd)
+- Page router
 - Custom back end (NodeJS, Express)

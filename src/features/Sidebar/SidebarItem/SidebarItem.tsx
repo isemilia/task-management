@@ -1,14 +1,15 @@
 import { Box, IconButton, Typography } from "@mui/material"
 import { FC } from "react"
 import { useCustomTheme } from "../../../hooks/useCustomTheme/useCustomTheme"
-import { ISidebarItemProps } from "./SidebarItem.type"
+import { ISidebarItemProps } from "./SidebarItem.type";
 
 const SidebarItem: FC<ISidebarItemProps> = ({
   onClick = () => ({}),
   icon,
   label,
   sx = {},
-  isOpen
+  isOpen,
+  isActive
 }) => {
   const theme = useCustomTheme();
 
@@ -22,6 +23,17 @@ const SidebarItem: FC<ISidebarItemProps> = ({
         columnGap: ({ spacing }) => `${spacing(3)}`,
         padding: ({ spacing }) => `${spacing(1)} 0px`,
         cursor: 'pointer',
+        textDecoration: 'none',
+        color: 'inherit',
+        '& path': {
+          fill: 'inherit'
+        },
+        ...(isActive ? {
+          color: theme.palette.primary.main,
+          '& path': {
+            fill: theme.palette.primary.main
+          },
+        } : {}),
         ...(isOpen ? {
           borderRadius: theme.radius(),
           '&:hover': {

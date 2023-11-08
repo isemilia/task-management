@@ -8,4 +8,6 @@ export interface ISidebarItemProps {
     label: string
     sx?: SxProps<Theme>
     isOpen: boolean
+    href?: string
+    isActive?: boolean
 }

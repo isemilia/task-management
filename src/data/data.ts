@@ -1,0 +1,1 @@
+export const serverBase = 'https://my-json-server.typicode.com/emiliaweb/task-management';

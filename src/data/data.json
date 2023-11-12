@@ -1,0 +1,31 @@
+{
+    "tasks": [
+        {
+            "title": "Create Shot Dribbble",
+            "description": "Make dribbble shots for studio portfolio needs",
+            "status": {
+                "title": "To do",
+                "id": "toDo"
+            },
+            "id": 1
+        },
+        {
+            "title": "Slicing Landing Page",
+            "description": "Nice and clean landing page with interesting content",
+            "status": {
+                "title": "In progress",
+                "id": "inProgress"
+            },
+            "id": 2
+        },
+        {
+            "title": "Dahsboard Google",
+            "description": "Transfer tasks from Google dashboard",
+            "status": {
+                "title": "Done",
+                "id": "done"
+            },
+            "id": 2
+        }
+    ]
+}

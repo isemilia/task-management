@@ -5,27 +5,54 @@
             "description": "Make dribbble shots for studio portfolio needs",
             "status": {
                 "title": "To do",
-                "id": "toDo"
+                "id": "status-1"
             },
-            "id": 1
+            "id": "task-1"
         },
         {
             "title": "Slicing Landing Page",
             "description": "Nice and clean landing page with interesting content",
             "status": {
                 "title": "In progress",
-                "id": "inProgress"
+                "id": "status-2"
             },
-            "id": 2
+            "id": "task-2"
         },
         {
             "title": "Dahsboard Google",
             "description": "Transfer tasks from Google dashboard",
             "status": {
                 "title": "Done",
-                "id": "done"
+                "id": "status-4"
             },
-            "id": 3
+            "id": "task-3"
+        },
+        {
+            "title": "Promo video",
+            "description": "Record and edit our new promo video using Adobe After Effects",
+            "status": {
+                "title": "Stuck",
+                "id": "status-3"
+            },
+            "id": "task-4"
+        }
+    ],
+    "statuses": [
+        {
+            "title": "To do",
+            "id": "status-1"
+        },
+        {
+            "title": "In progress",
+            "id": "status-2"
+        },
+        {
+            "title": "Stuck",
+            "id": "status-3"
+        },
+        {
+            "title": "Done",
+            "id": "status-4"
         }
     ]
 }

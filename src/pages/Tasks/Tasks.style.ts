@@ -7,11 +7,3 @@ export const Column = styled(Box)(
         gap: theme.spacing(5)
     })
 );
-
-export const CardHead = styled(Box)(
-    () => ({
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between'
-    })
-);

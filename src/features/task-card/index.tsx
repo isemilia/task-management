@@ -3,10 +3,10 @@ import { Box, IconButton, Typography, Divider } from "@mui/material"
 import EventRoundedIcon from '@mui/icons-material/EventRounded';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 
-import Card from "../../components/Card/Card"
-import { CardFrame } from "../../components/Card/Card.style";
-import { ITaskCardProps } from "./TaskCard.type";
-import { renderLabels } from "./utils";
+import Card from "../../components/card/card"
+import { CardFrame } from "../../components/card/card.style";
+import { ITaskCardProps } from "./task-card.type";
+import { renderLabels } from "./task-card.utils";
 
 const TaskCard: FC<ITaskCardProps> = ({ labels, title, description, date }) => {
 

@@ -1,10 +1,10 @@
 import { FC, useEffect, useState } from 'react';
 
 import { Box } from '@mui/material';
-import { useCustomTheme } from '../hooks/useCustomTheme/useCustomTheme';
+import { useCustomTheme } from '../model/hooks/use-custom-theme';
 
-import AppRouter from '../router/router';
-import Sidebar from '../features/Sidebar';
+import AppRouter from '../model/router/router';
+import Sidebar from '../features/sidebar';
 
 const App: FC = () => {
   const theme = useCustomTheme();

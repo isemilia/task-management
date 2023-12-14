@@ -2,11 +2,10 @@ import { Box } from "@mui/material";
 import { FC } from "react";
 
 import { Column } from "./Tasks.style";
-import TaskCard from "../../features/TaskCard/TaskCard";
+import TaskCard from "../../features/task-card";
 import ColumnHeader from "./ColumnHeader/ColumnHeader";
 
 const Tasks: FC = () => {
-
     return (
         <Box sx={{ display: 'grid', gridAutoColumns: 'clamp(200px, 100%, 340px)', gap: ({ spacing }) => spacing(5), gridAutoFlow: 'column' }}>
             <Column>

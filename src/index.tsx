@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import App from './App/App.tsx';
-import customTheme from './theme/theme.tsx';
+import customTheme from './model/theme/theme.tsx';
 
 import 'normalize.css';
 import './index.scss';

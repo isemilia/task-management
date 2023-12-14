@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "server": "json-server ./src/data/db.json"
+    "server": "json-server src/model/data/db.json"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",

@@ -1,7 +1,7 @@
 import { FC } from "react";
-import Card from "../../../components/Card/Card";
+import Card from "../../../components/card/card";
 import { Chip, IconButton } from "@mui/material";
-import { CardFrame } from "../../../components/Card/Card.style";
+import { CardFrame } from "../../../components/card/card.style";
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import { ICcolumnHeaderProps } from "./ColumnHeader.type";
 

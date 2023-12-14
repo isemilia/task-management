@@ -4,10 +4,10 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import OpenInFullRoundedIcon from '@mui/icons-material/OpenInFullRounded';
 import { Box } from "@mui/material";
 import { FC } from "react";
-import { useCustomTheme } from "../../hooks/useCustomTheme/useCustomTheme";
-import { Drawer } from './Sidebar.style';
-import { ISidebarProps } from "./Sidebar.type";
-import SidebarItem from "./SidebarItem/SidebarItem";
+import { useCustomTheme } from "../../model/hooks/use-custom-theme";
+import { Drawer } from './sidebar.style';
+import { ISidebarProps } from "./sidebar.type";
+import SidebarItem from "./sidebar-item";
 import { Link, NavLink } from 'react-router-dom';
 
 const Sidebar: FC<ISidebarProps> = ({ isOpen, toggleSidebar }) => {

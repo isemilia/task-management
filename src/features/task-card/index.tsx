@@ -5,8 +5,8 @@ import EditRoundedIcon from '@mui/icons-material/EditRounded';
 
 import Card from "../../components/card/card"
 import { CardFrame } from "../../components/card/card.style";
-import { ITaskCardProps } from "./task-card.type";
-import { renderLabels } from "./task-card.utils";
+import { ITaskCardProps } from "./model/task-card.type";
+import { renderLabels } from "./model/task-card.utils";
 
 const TaskCard: FC<ITaskCardProps> = ({ labels, title, description, date }) => {
 

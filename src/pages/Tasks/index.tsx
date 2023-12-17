@@ -1,9 +1,9 @@
 import { Box } from "@mui/material";
 import { FC } from "react";
 
-import { Column } from "./tasks.style";
+import { Column } from "./model/tasks.style";
 import TaskCard from "../../features/task-card";
-import ColumnHeader from "./column-header";
+import ColumnHeader from "./components/column-header";
 
 const Tasks: FC = () => {
     return (

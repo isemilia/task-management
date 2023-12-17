@@ -5,10 +5,12 @@ import OpenInFullRoundedIcon from '@mui/icons-material/OpenInFullRounded';
 import { Box } from "@mui/material";
 import { FC } from "react";
 import { useCustomTheme } from "../../model/hooks/use-custom-theme";
-import { Drawer } from './sidebar.style';
-import { ISidebarProps } from "./sidebar.type";
-import SidebarItem from "./sidebar-item";
-import { Link, NavLink } from 'react-router-dom';
+import { Drawer } from './model/sidebar.style';
+import { ISidebarProps } from "./model/sidebar.type";
+import SidebarItem from "./components/sidebar-item";
+import { NavLink } from 'react-router-dom';
+
+import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 
 const Sidebar: FC<ISidebarProps> = ({ isOpen, toggleSidebar }) => {
     const theme = useCustomTheme();
@@ -54,6 +56,11 @@ const Sidebar: FC<ISidebarProps> = ({ isOpen, toggleSidebar }) => {
                                 : <OpenInFullRoundedIcon />
                         }
                         onClick={toggleSidebar} />
+                    <SidebarItem
+                        icon={<AccountCircleRoundedIcon />}
+                        isOpen={isOpen}
+                        label={'Account'}
+                        onClick={() => ({})} />
                 </Box>
             </Box>
         </Drawer>

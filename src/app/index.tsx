@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 import { useCustomTheme } from '../model/hooks/use-custom-theme';
 
-import AppRouter from '../model/router/router';
+import AppRouter from './router/router';
 import Sidebar from '../features/sidebar';
 
 const App: FC = () => {
@@ -20,9 +20,9 @@ const App: FC = () => {
   }, [isOpen])
 
   return (
-    <Box sx={{ display: 'flex', columnGap: theme.spacing(6) }}>
+    <Box sx={{ display: 'flex', maxWidth: '100vw' }}>
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-      <Box sx={{ padding: `${theme.spacing(6)} 0` }}>
+      <Box sx={{ padding: theme.spacing(6), width: '100%' }}>
         <AppRouter />
       </Box>
     </Box>

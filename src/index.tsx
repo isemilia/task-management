@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import App from './App/App.tsx';
-import customTheme from './model/theme/theme.tsx';
+import App from './app/index.tsx';
+import customTheme from './app/theme/theme.tsx';
 
 import 'normalize.css';
 import './index.scss';

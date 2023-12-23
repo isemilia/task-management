@@ -1,13 +1,5 @@
-export interface ICTextFieldProps {
+import {BaseTextFieldProps} from '@mui/material/TextField/TextField';
+
+export interface ICTextFieldProps extends BaseTextFieldProps{
   name: string
-  label?: string
-  placeholder?: string
-  variant?:
-    | 'filled'
-    | 'outlined'
-    | 'standard'
-  margin?:
-    | 'dense'
-    | 'none'
-    | 'normal'
 }

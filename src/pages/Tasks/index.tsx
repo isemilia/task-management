@@ -1,17 +1,19 @@
 import { Box, Typography } from "@mui/material";
 import { FC, useState } from "react";
+import CreateTask from '../../features/create-task';
 
 import { Column } from "./model/tasks.style";
 import TaskCard from "../../components/task-card";
 import ColumnHeader from "./components/column-header";
-import Modal from "../../ui/modal";
 import { testTasks, testStatuses } from "../../shared/model/data/data";
 
 const Tasks: FC = () => {
 	const [currentTask, setCurrentTask] = useState<null | number>(null);
-	const [isModalOpen, setModalOpen] = useState(false);
+	const [isEditModalOpen, setEditModalOpen] = useState(false);
+	const [isCreateModalOpen, setCreateModalOpen] = useState(false);
 
-	const toggleModal = () => setModalOpen(state => !state);
+	const toggleEditModal = () => setEditModalOpen(state => !state);
+	const toggleCreateModal = () => setCreateModalOpen(state => !state);
 
 	return (
 		<Box sx={{ display: 'grid', gridAutoColumns: 'clamp(200px, 100%, 340px)', gap: ({ spacing }) => spacing(5), gridAutoFlow: 'column' }}>
@@ -19,7 +21,7 @@ const Tasks: FC = () => {
 				testStatuses.map(status => {
 					return (
 						<Column key={status.id}>
-							<ColumnHeader label={status.title} handleCreate={() => console.log(status)} />
+							<ColumnHeader label={status.title} handleCreate={toggleCreateModal} />
 							{
 								testTasks
 									.filter(task => task.status.id === status.id)
@@ -31,7 +33,7 @@ const Tasks: FC = () => {
 											description={task.description}
 											handleEdit={() => {
 												setCurrentTask(task.id);
-												toggleModal();
+												toggleEditModal();
 											}} />
 									))
 							}
@@ -40,9 +42,7 @@ const Tasks: FC = () => {
 				})
 			}
 
-			<Modal isOpen={isModalOpen} handleToggle={toggleModal}>
-				<Typography>Edit</Typography>
-			</Modal>
+			<CreateTask isOpen={isCreateModalOpen} handleToggle={toggleCreateModal} />
 		</Box>
 	)
 }

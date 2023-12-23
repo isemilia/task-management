@@ -1,4 +1,4 @@
-import { IModalProps } from "../../../components/modal/model/modal.type";
+import { IModalProps } from "../../../ui/modal/model/modal.type";
 
 export interface ICreateTaskProps {
     isOpen: IModalProps['isOpen'];

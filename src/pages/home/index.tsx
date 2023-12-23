@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { FC } from "react";
-import ContentWrapper from "../../components/content-wrapper";
+import ContentWrapper from "../../ui/content-wrapper";
 
 const Home: FC = () => {
     return (

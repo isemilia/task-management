@@ -2,9 +2,9 @@ import { Box, Typography } from "@mui/material";
 import { FC, useState } from "react";
 
 import { Column } from "./model/tasks.style";
-import TaskCard from "../../features/task-card";
+import TaskCard from "../../components/task-card";
 import ColumnHeader from "./components/column-header";
-import Modal from "../../components/modal";
+import Modal from "../../ui/modal";
 import { testTasks, testStatuses } from "../../shared/model/data/data";
 
 const Tasks: FC = () => {
@@ -18,13 +18,14 @@ const Tasks: FC = () => {
 			{
 				testStatuses.map(status => {
 					return (
-						<Column>
-							<ColumnHeader key={status.id} label={status.title} handleCreate={() => console.log(status)} />
+						<Column key={status.id}>
+							<ColumnHeader label={status.title} handleCreate={() => console.log(status)} />
 							{
 								testTasks
 									.filter(task => task.status.id === status.id)
 									.map(task => (
 										<TaskCard
+											key={task.id}
 											date={task.date}
 											title={task.title}
 											description={task.description}

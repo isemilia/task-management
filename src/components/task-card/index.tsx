@@ -3,8 +3,8 @@ import { Box, IconButton, Typography, Divider } from "@mui/material"
 import EventRoundedIcon from '@mui/icons-material/EventRounded';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 
-import Card from "../../components/card/card"
-import { CardFrame } from "../../components/card/card.style";
+import Card from "../../ui/card/card"
+import { CardFrame } from "../../ui/card/card.style";
 import { ITaskCardProps } from "./model/task-card.type";
 import { renderLabels } from "./model/task-card.utils";
 

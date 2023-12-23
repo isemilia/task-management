@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import Modal from "../../components/modal";
+import Modal from "../../ui/modal";
 import { ICreateTaskProps } from "./model/create-task.type";
 
 const CreateTask: FC<ICreateTaskProps> = () => {

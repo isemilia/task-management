@@ -6,12 +6,12 @@ import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import { ICcolumnHeaderProps } from "./column-header.type";
 
 
-const ColumnHeader: FC<ICcolumnHeaderProps> = ({ label, color = 'default' }) => {
+const ColumnHeader: FC<ICcolumnHeaderProps> = ({ label, color = 'default', handleCreate }) => {
     return (
         <Card>
             <CardFrame>
                 <Chip label={label} color={color} />
-                <IconButton size={'small'}>
+                <IconButton size={'small'} onClick={() => handleCreate()}>
                     <AddRoundedIcon />
                 </IconButton>
             </CardFrame>

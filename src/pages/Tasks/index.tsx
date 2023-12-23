@@ -1,32 +1,49 @@
-import { Box } from "@mui/material";
-import { FC } from "react";
+import { Box, Typography } from "@mui/material";
+import { FC, useState } from "react";
 
 import { Column } from "./model/tasks.style";
 import TaskCard from "../../features/task-card";
 import ColumnHeader from "./components/column-header";
+import Modal from "../../components/modal";
+import { testTasks, testStatuses } from "../../shared/model/data/data";
 
 const Tasks: FC = () => {
-    return (
-        <Box sx={{ display: 'grid', gridAutoColumns: 'clamp(200px, 100%, 340px)', gap: ({ spacing }) => spacing(5), gridAutoFlow: 'column' }}>
-            <Column>
-                <ColumnHeader label={'To do'} />
+	const [currentTask, setCurrentTask] = useState<null | number>(null);
+	const [isModalOpen, setModalOpen] = useState(false);
 
-                <TaskCard title={'Task title'} description={'Slicing to the website from the design that has been made by the UI designer.'} date={'Nov 11, 2023'} />
-            </Column>
+	const toggleModal = () => setModalOpen(state => !state);
 
-            <Column>
-                <ColumnHeader label={'In progress'} color={'info'} />
-            </Column>
+	return (
+		<Box sx={{ display: 'grid', gridAutoColumns: 'clamp(200px, 100%, 340px)', gap: ({ spacing }) => spacing(5), gridAutoFlow: 'column' }}>
+			{
+				testStatuses.map(status => {
+					return (
+						<Column>
+							<ColumnHeader key={status.id} label={status.title} handleCreate={() => console.log(status)} />
+							{
+								testTasks
+									.filter(task => task.status.id === status.id)
+									.map(task => (
+										<TaskCard
+											date={task.date}
+											title={task.title}
+											description={task.description}
+											handleEdit={() => {
+												setCurrentTask(task.id);
+												toggleModal();
+											}} />
+									))
+							}
+						</Column>
+					)
+				})
+			}
 
-            <Column>
-                <ColumnHeader label={'Stuck'} color={'warning'} />
-            </Column>
-
-            <Column>
-                <ColumnHeader label={'Done'} color={'success'} />
-            </Column>
-        </Box>
-    )
+			<Modal isOpen={isModalOpen} handleToggle={toggleModal}>
+				<Typography>Edit</Typography>
+			</Modal>
+		</Box>
+	)
 }
 
 export default Tasks;

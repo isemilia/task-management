@@ -8,7 +8,7 @@ import { CardFrame } from "../../components/card/card.style";
 import { ITaskCardProps } from "./model/task-card.type";
 import { renderLabels } from "./model/task-card.utils";
 
-const TaskCard: FC<ITaskCardProps> = ({ labels, title, description, date }) => {
+const TaskCard: FC<ITaskCardProps> = ({ labels, title, description, date, handleEdit }) => {
 
     return (
         <Card>
@@ -29,7 +29,7 @@ const TaskCard: FC<ITaskCardProps> = ({ labels, title, description, date }) => {
                         {date}
                     </Box>
                 </Box>
-                <IconButton size={'small'}>
+                <IconButton size={'small'} onClick={() => handleEdit()}>
                     <EditRoundedIcon />
                 </IconButton>
             </CardFrame>

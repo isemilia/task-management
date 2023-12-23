@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 
 import { Box } from '@mui/material';
-import { useCustomTheme } from '../model/hooks/use-custom-theme';
+import { useCustomTheme } from '../shared/model/hooks/use-custom-theme';
 
 import AppRouter from './router/router';
 import Sidebar from '../features/sidebar';

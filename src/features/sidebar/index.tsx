@@ -4,7 +4,7 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import OpenInFullRoundedIcon from '@mui/icons-material/OpenInFullRounded';
 import { Box } from "@mui/material";
 import { FC } from "react";
-import { useCustomTheme } from "../../model/hooks/use-custom-theme";
+import { useCustomTheme } from "../../shared/model/hooks/use-custom-theme";
 import { Drawer } from './model/sidebar.style';
 import { ISidebarProps } from "./model/sidebar.type";
 import SidebarItem from "./components/sidebar-item";

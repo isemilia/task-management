@@ -5,4 +5,5 @@ export interface ITaskCardProps {
     title: string;
     description: string;
     date: string;
+    handleEdit: () => void
 }

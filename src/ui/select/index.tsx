@@ -20,6 +20,7 @@ const Select: FC<ISelectProps> = ({ label, options, handleSelect, ...rest }) => 
         {
           options.map(({ value, label }) => (
             <MenuItem
+              key={value}
               onClick={() => handleSelect && handleSelect({ value, label })}
               value={value}>
               {label ?? value}

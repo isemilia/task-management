@@ -1,5 +1,5 @@
 export interface ITaskFormProps {
-  defaultValues?: ITaskFormData
+  defaultValues?: Partial<ITaskFormData>
   handleSubmit: (data: ITaskFormData) => void
 }
 

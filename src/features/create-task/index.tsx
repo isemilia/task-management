@@ -6,7 +6,7 @@ import TaskForm from "@/components/task-form";
 import { ITaskFormData } from "@/components/task-form/model/task-form.type";
 import ModalTitle from "@/ui/modal/components/modal-title";
 
-const CreateTask: FC<ICreateTaskProps> = ({ isOpen, handleToggle }) => {
+const CreateTask: FC<ICreateTaskProps> = ({ isOpen, handleToggle, defaultValues }) => {
     const handleSubmit = (data: ITaskFormData) => {
         console.log(data);
     }
@@ -14,7 +14,7 @@ const CreateTask: FC<ICreateTaskProps> = ({ isOpen, handleToggle }) => {
     return (
         <Modal isOpen={isOpen} handleToggle={handleToggle}>
             <ModalTitle>New task</ModalTitle>
-            <TaskForm handleSubmit={handleSubmit} />
+            <TaskForm defaultValues={defaultValues} handleSubmit={handleSubmit} />
         </Modal>
     )
 }

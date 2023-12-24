@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { Box, Button } from "@mui/material";
 import { useForm, FormProvider } from 'react-hook-form';
 
@@ -16,6 +16,12 @@ const TaskForm: FC<ITaskFormProps> = ({ defaultValues, handleSubmit }) => {
       status: 1
     }
   });
+
+  useEffect(() => {
+    if (defaultValues) {
+      methods.reset(defaultValues);
+    }
+  }, [defaultValues, methods])
 
   const onSubmit = (data: ITaskFormData) => {
     handleSubmit(data);

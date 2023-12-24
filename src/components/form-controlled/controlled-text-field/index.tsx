@@ -1,14 +1,14 @@
-import {FC} from 'react';
-import {TextField} from '@mui/material';
-import {Controller} from 'react-hook-form';
-import {ICTextFieldProps} from './model/controlled-text-field.type';
+import { FC } from 'react';
+import { Controller } from 'react-hook-form';
+import { TextField } from '@mui/material';
+import { ICTextFieldProps } from '@/components/form-controlled/controlled-text-field/model/controlled-text-field.type';
 
-const CTextField: FC<ICTextFieldProps> = ({name, ...rest}) => {
+const CTextField: FC<ICTextFieldProps> = ({ name, ...rest }) => {
   return (
     <>
       <Controller
         name={name}
-        render={({field: {onChange, onBlur, value}}) => {
+        render={({ field: { onChange, onBlur, value } }) => {
           return (
             <TextField
               {...rest}

@@ -1,4 +1,4 @@
-import { IDynamicObject, ISortByPropertyArgs } from "./utils.type";
+import { IDynamicObject, ISortByPropertyArgs } from "@/shared/utils/utils.type";
 
 export const sortByProperty = (arg: ISortByPropertyArgs) => {
     const { data, property } = arg;

@@ -1,9 +1,10 @@
 import { FC } from "react";
-import Card from "../../../../ui/card/card";
-import { Chip, IconButton } from "@mui/material";
-import { CardFrame } from "../../../../ui/card/card.style";
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
-import { ICcolumnHeaderProps } from "./column-header.type";
+
+import Card from "@/ui/card";
+import { Chip, IconButton } from "@mui/material";
+import { CardFrame } from "@/ui/card/card.style";
+import { ICcolumnHeaderProps } from "@/pages/tasks/components/column-header/column-header.type";
 
 
 const ColumnHeader: FC<ICcolumnHeaderProps> = ({ label, color = 'default', handleCreate }) => {

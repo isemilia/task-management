@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Modal as MuiModal, Box, SxProps, Theme } from "@mui/material"
-import { IModalProps } from "./model/modal.type";
+import { IModalProps } from "@/ui/modal/model/modal.type";
 
 const style: SxProps<Theme> = {
     position: 'absolute' as const,

@@ -1,11 +1,11 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { FC, useState } from "react";
-import CreateTask from '../../features/create-task';
+import CreateTask from '@/features/create-task';
 
-import { Column } from "./model/tasks.style";
-import TaskCard from "../../components/task-card";
-import ColumnHeader from "./components/column-header";
-import { testTasks, testStatuses } from "../../shared/model/data/data";
+import { Column } from "@/pages/tasks/model/tasks.style";
+import TaskCard from "@/components/task-card";
+import ColumnHeader from "@/pages/tasks/components/column-header";
+import { testTasks, testStatuses } from "@/shared/model/data/data";
 
 const Tasks: FC = () => {
 	const [currentTask, setCurrentTask] = useState<null | number>(null);

@@ -4,8 +4,8 @@ import {
     Routes,
 } from "react-router-dom";
 
-import Home from "../../pages/home";
-import Tasks from "../../pages/tasks";
+import Home from "@/pages/home";
+import Tasks from "@/pages/tasks";
 
 const routes = [
     {

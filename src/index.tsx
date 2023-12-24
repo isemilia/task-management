@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material';
 
-import App from './app/index.tsx';
-import customTheme from './app/theme/theme.tsx';
+import App from '@/app/index.tsx';
+import customTheme from '@/app/theme/theme.tsx';
 
 import 'normalize.css';
-import './index.scss';
+import '@/index.scss';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { ThemeProvider } from '@mui/material';
-import { BrowserRouter } from 'react-router-dom';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

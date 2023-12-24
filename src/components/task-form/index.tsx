@@ -12,7 +12,8 @@ const TaskForm: FC<ITaskFormProps> = ({ defaultValues, handleSubmit }) => {
   const methods = useForm<ITaskFormData>({
     defaultValues: {
       title: '',
-      description: ''
+      description: '',
+      status: 1
     }
   });
 

@@ -6,4 +6,5 @@ export interface ITaskFormProps {
 export interface ITaskFormData {
   title: string
   description: string
+  status: number
 }

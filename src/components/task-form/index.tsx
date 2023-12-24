@@ -1,9 +1,10 @@
 import { FC } from "react";
 import { Box, Button } from "@mui/material";
 import { useForm, FormProvider } from 'react-hook-form';
-import CTextField from '../form-controlled/controlled-text-field';
-import { ITaskFormData, ITaskFormProps } from './model/task-form.type';
-import { FormFooter, FormLayout } from "../../ui/layouts/form";
+
+import CTextField from '@/components/form-controlled/controlled-text-field';
+import { ITaskFormData, ITaskFormProps } from '@/components/task-form/model/task-form.type';
+import { FormFooter, FormLayout } from "@/ui/layouts/form";
 
 const TaskForm: FC<ITaskFormProps> = ({ defaultValues, handleSubmit }) => {
   const methods = useForm<ITaskFormData>({

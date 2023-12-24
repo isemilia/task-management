@@ -5,8 +5,8 @@ import { useForm, FormProvider } from 'react-hook-form';
 import CTextField from '@/components/form-controlled/controlled-text-field';
 import { ITaskFormData, ITaskFormProps } from '@/components/task-form/model/task-form.type';
 import { FormFooter, FormLayout } from "@/ui/layouts/form";
-import Select from "@/ui/select";
 import { testStatuses } from "@/shared/model/data/data";
+import CSelect from "@/components/form-controlled/controlled-select";
 
 const TaskForm: FC<ITaskFormProps> = ({ defaultValues, handleSubmit }) => {
   const methods = useForm<ITaskFormData>({
@@ -37,7 +37,7 @@ const TaskForm: FC<ITaskFormProps> = ({ defaultValues, handleSubmit }) => {
               variant={'standard'}
               multiline={true}
             />
-            <Select
+            <CSelect
               name={'status'}
               label={'Status'}
               options={

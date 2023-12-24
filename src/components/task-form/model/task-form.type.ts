@@ -1,6 +1,9 @@
 export interface ITaskFormProps {
-  defaultValues?: {
-    [key: string]: any
-  }
-  handleSubmit: (data: any) => void
+  defaultValues?: ITaskFormData
+  handleSubmit: (data: ITaskFormData) => void
+}
+
+export interface ITaskFormData {
+  title: string
+  description: string
 }

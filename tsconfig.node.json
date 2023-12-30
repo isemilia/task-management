@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     /* Path */
-    // "baseUrl": "./",
-    // "paths": {
-    //     "@/*": ["src/*"]
-    // },
+    "baseUrl": "./",
+    "paths": {
+        "@/*": ["src/*"]
+    },
     
     "composite": true,
     "skipLibCheck": true,

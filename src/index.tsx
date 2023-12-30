@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material';
 
 import App from '@/app/index.tsx';
-import customTheme from '@/app/theme/theme.tsx';
+import theme from '@/app/theme/theme.tsx';
 
 import 'normalize.css';
 import '@/index.scss';
@@ -18,7 +18,7 @@ import '@fontsource/roboto/700.css';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider theme={customTheme}>
+      <ThemeProvider theme={theme}>
         <App />
       </ThemeProvider>
     </BrowserRouter>

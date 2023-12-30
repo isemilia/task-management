@@ -1,21 +1,21 @@
-import { Theme, createTheme } from "@mui/material";
+import { createTheme } from "@mui/material";
 
-declare module '@mui/material/styles' {
-    interface Theme {
+
+declare module '@mui/material' {
+    export interface Theme {
         radius: (n?: number) => string;
     }
-    interface ThemeOptions {
+
+    export interface ThemeOptions {
         radius?: (n?: number) => string;
     }
 }
 
-const muiTheme = createTheme({
+const theme = createTheme({
     spacing: 4,
+    radius: (n = 4) => `${n}px`,
 });
 
-const customTheme = {
-    ...muiTheme,
-    radius: (n = 4) => `${n}px`,
-};
+export type TCustomTheme = typeof theme;
 
-export default customTheme as Theme & typeof customTheme;
+export default theme;

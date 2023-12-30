@@ -5,5 +5,5 @@ export interface IEditTaskProps {
     isOpen: IModalProps['isOpen'];
     handleToggle: IModalProps['handleToggle'];
     defaultValues?: Partial<ITaskFormProps['defaultValues']>;
-    id?: number
+    id?: number | null
 }

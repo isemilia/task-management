@@ -6,6 +6,7 @@ import { Column } from "@/pages/tasks/model/tasks.style";
 import TaskCard from "@/components/task-card";
 import ColumnHeader from "@/pages/tasks/components/column-header";
 import { testTasks, testStatuses } from "@/shared/model/data/data";
+import EditTask from "@/features/edit-task";
 
 const Tasks: FC = () => {
 	const [currentTask, setCurrentTask] = useState<null | number>(null);
@@ -55,6 +56,10 @@ const Tasks: FC = () => {
 				defaultValues={
 					currentStatus ? { status: currentStatus } : undefined
 				} />
+			<EditTask
+				isOpen={isEditModalOpen}
+				handleToggle={() => setEditModalOpen(state => !state)}
+				id={currentTask} />
 		</Box>
 	)
 }

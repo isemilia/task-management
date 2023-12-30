@@ -9,7 +9,8 @@ import Sidebar from '@/components/sidebar';
 const App: FC = () => {
   const theme = useCustomTheme();
 
-  const [isOpen, setOpen] = useState<boolean>(JSON.parse(localStorage.getItem('sidebarState') ?? '') ?? true)
+  const sidebarState = localStorage.getItem('sidebarState');
+  const [isOpen, setOpen] = useState<boolean>((sidebarState && JSON.parse(sidebarState)) || true);
 
   const toggleSidebar = () => {
     setOpen(state => !state)

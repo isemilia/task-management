@@ -13,7 +13,7 @@ declare module '@mui/material' {
 
 const theme = createTheme({
     spacing: 4,
-    radius: (n = 4) => `${n}px`,
+    radius: (n: number = 1) => `${n * 4}px`,
 });
 
 export type TCustomTheme = typeof theme;

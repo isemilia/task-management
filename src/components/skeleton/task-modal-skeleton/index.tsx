@@ -1,14 +1,14 @@
 import { FormLayout } from '@/ui/layouts/form';
-import ModalTitle from '@/ui/modal/components/modal-title';
+import ActionTitle from '@/ui/action-title';
 import { Skeleton } from '@mui/material';
 import { FC } from 'react';
 
 const TaskModalSkeleton: FC = () => {
     return (
         <>
-            <ModalTitle>
+            <ActionTitle>
                 <Skeleton variant={'rounded'} height={'30px'} />
-            </ModalTitle>
+            </ActionTitle>
             <FormLayout>
                 <Skeleton variant={'rounded'} height={'40px'} />
                 <Skeleton variant={'rounded'} height={'40px'} />

@@ -4,7 +4,7 @@ import EventRoundedIcon from '@mui/icons-material/EventRounded';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 
 import Card from "@/ui/card"
-import { CardFrame } from "@/ui/card/card.style";
+import { CardFrame } from "@/ui/card/model/card.style";
 import { ITaskCardProps } from "@/components/task-card/model/task-card.type";
 import { renderLabels } from "@/components/task-card/model/task-card.utils";
 

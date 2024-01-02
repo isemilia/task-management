@@ -18,7 +18,7 @@ const TaskCard: FC<ITaskCardProps> = ({ labels, title, description, date, handle
                 </Box>
             </CardFrame>
             <Box sx={{ marginTop: ({ spacing }) => spacing(2) }}>
-                <Typography component={'h3'} variant={'h6'}>{title}</Typography>
+                <Typography component={'h3'} variant={'h3'}>{title}</Typography>
                 <Typography variant={'body1'} sx={{ marginTop: ({ spacing }) => spacing() }}>{description}</Typography>
             </Box>
             <Divider sx={{ margin: ({ spacing }) => `${spacing(3)} 0` }} />

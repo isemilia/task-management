@@ -6,10 +6,10 @@ const Home: FC = () => {
     return (
         <Box>
             <ContentWrapper>
-                <Typography component={'h1'} variant={'h4'}>Welcome to your TaskHub!</Typography>
+                <Typography component={'h1'} variant={'h1'}>Welcome to your TaskHub!</Typography>
                 <Box sx={{ maxWidth: '750px', marginTop: ({ spacing }) => spacing(2), '& > *': { padding: ({ spacing }) => `${spacing(2)} 0` } }}>
                     <Typography>TaskHub is a minimalist task manager, designed as my personal project. It's developed using React, TypeScript, Redux, and Material-UI on the frontend, and powered by MongoDB, Node.js, and Express on the backend. No frills, just a straightforward tool for managing your tasks.</Typography>
-                    <Typography component={'h3'} variant={'h5'}>Tech Stack:</Typography>
+                    <Typography component={'h2'} variant={'h3'}>Tech Stack:</Typography>
                     <Box sx={{ display: 'flex', gap: ({ spacing }) => spacing(2) }}>
                         <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
                         <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />

@@ -51,7 +51,7 @@ const SignupForm: FC<ISignupFormProps> = ({ handleSubmit }) => {
                         <Button
                             onClick={methods.handleSubmit(onSubmit)}
                             variant={'contained'}
-                            type={'submit'}>Log in</Button>
+                            type={'submit'}>Sign up</Button>
                     </FormLayout>
                 </form>
             </FormProvider>

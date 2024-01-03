@@ -1,12 +1,12 @@
-import { FC } from "react";
-import { FormProvider, useForm } from "react-hook-form";
-import { Box, Button } from "@mui/material";
+import { FC } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
+import { Box, Button } from '@mui/material';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { FormLayout } from "@/ui/layouts/form";
-import CTextField from "../form-controlled/controlled-text-field";
-import { ISignupFormProps } from "./model/signup-form.type";
-import schema from "./model/signup-form.yup";
+import { FormLayout } from '@/ui/layouts/form';
+import CTextField from '../form-controlled/controlled-text-field';
+import { ISignupFormProps } from './model/signup-form.type';
+import schema from './model/signup-form.schema';
 
 const SignupForm: FC<ISignupFormProps> = ({ handleSubmit }) => {
     const methods = useForm({
@@ -23,29 +23,31 @@ const SignupForm: FC<ISignupFormProps> = ({ handleSubmit }) => {
         handleSubmit(data);
     }
 
-    // console.log(methods.formState.errors)
-
     return (
         <Box>
             <FormProvider {...methods}>
                 <form>
                     <FormLayout sx={{ minWidth: '400px' }}>
                         <CTextField
-                            name="name"
+                            name={'name'}
                             required
-                            label={'Name'} />
+                            label={'Name'}
+                            autoComplete={'off'} />
                         <CTextField
-                            name="username"
+                            name={'username'}
                             required
-                            label={'Username'} />
+                            label={'Username'}
+                            autoComplete={'off'} />
                         <CTextField
-                            name="password"
+                            name={'password'}
                             required
-                            label={'Password'} />
+                            label={'Password'}
+                            autoComplete={'off'} />
                         <CTextField
-                            name="repeatPassword"
+                            name={'repeatPassword'}
                             required
-                            label={'Repeat password'} />
+                            label={'Repeat password'}
+                            autoComplete={'off'} />
                         <Button
                             onClick={methods.handleSubmit(onSubmit)}
                             variant={'contained'}

@@ -3,13 +3,16 @@ import { Box, Button, Paper } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
 import CTextField from "../form-controlled/controlled-text-field";
 import { FormLayout } from "@/ui/layouts/form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import schema from "./model/login-form.schema";
 
 const LoginForm: FC<{ handleSubmit: (data: any) => void }> = ({ handleSubmit }) => {
 	const methods = useForm({
 		defaultValues: {
 			username: '',
 			password: ''
-		}
+		},
+		resolver: yupResolver(schema)
 	});
 
 	const onSubmit = (data: any) => {

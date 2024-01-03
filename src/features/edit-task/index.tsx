@@ -1,7 +1,7 @@
 import TaskForm from "@/components/task-form"
 import { ITaskFormData } from "@/components/task-form/model/task-form.type"
 import Modal from "@/ui/modal"
-import ModalTitle from "@/ui/modal/components/modal-title"
+import ActionTitle from "@/ui/action-title"
 import { FC, useState } from "react"
 import { IEditTaskProps } from "./model/edit-task.type"
 import { TaskModalSkeleton } from "@/components/skeleton"
@@ -18,7 +18,7 @@ const EditTask: FC<IEditTaskProps> = ({ isOpen, handleToggle, id }) => {
             {!id
                 ? (
                     <>
-                        <ModalTitle>New task</ModalTitle>
+                        <ActionTitle>New task</ActionTitle>
                         <TaskForm defaultValues={defaults} handleSubmit={handleSubmit} />
                     </>
                 )

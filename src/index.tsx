@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material';
 
 import App from '@/app/index.tsx';
-import theme from '@/app/theme/theme.tsx';
+import theme from '@/app/theme';
 
 import 'normalize.css';
 import '@/index.scss';

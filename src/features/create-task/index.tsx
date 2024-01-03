@@ -4,7 +4,7 @@ import Modal from "@/ui/modal";
 import { ICreateTaskProps } from "@/features/create-task/model/create-task.type";
 import TaskForm from "@/components/task-form";
 import { ITaskFormData } from "@/components/task-form/model/task-form.type";
-import ModalTitle from "@/ui/modal/components/modal-title";
+import ActionTitle from "@/ui/action-title";
 
 const CreateTask: FC<ICreateTaskProps> = ({ isOpen, handleToggle, defaultValues }) => {
     const handleSubmit = (data: ITaskFormData) => {
@@ -13,7 +13,7 @@ const CreateTask: FC<ICreateTaskProps> = ({ isOpen, handleToggle, defaultValues 
 
     return (
         <Modal isOpen={isOpen} handleToggle={handleToggle}>
-            <ModalTitle>New task</ModalTitle>
+            <ActionTitle>New task</ActionTitle>
             <TaskForm defaultValues={defaultValues} handleSubmit={handleSubmit} />
         </Modal>
     )

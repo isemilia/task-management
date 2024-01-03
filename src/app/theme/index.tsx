@@ -1,4 +1,5 @@
 import { createTheme } from "@mui/material";
+import typography from "./typography";
 
 
 declare module '@mui/material' {
@@ -14,6 +15,7 @@ declare module '@mui/material' {
 const theme = createTheme({
     spacing: 4,
     radius: (n: number = 1) => `${n * 4}px`,
+    typography,
 });
 
 export type TCustomTheme = typeof theme;

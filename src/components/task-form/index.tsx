@@ -7,14 +7,17 @@ import { ITaskFormData, ITaskFormProps } from '@/components/task-form/model/task
 import { FormFooter, FormLayout } from "@/ui/layouts/form";
 import { testStatuses } from "@/shared/model/data/data";
 import CSelect from "@/components/form-controlled/controlled-select";
+import { yupResolver } from "@hookform/resolvers/yup";
+import schema from "./model/task-form.schema";
 
 const TaskForm: FC<ITaskFormProps> = ({ defaultValues, handleSubmit }) => {
-  const methods = useForm<ITaskFormData>({
+  const methods = useForm({
     defaultValues: {
       title: '',
       description: '',
       status: 1
-    }
+    },
+    resolver: yupResolver(schema)
   });
 
   useEffect(() => {
@@ -23,7 +26,7 @@ const TaskForm: FC<ITaskFormProps> = ({ defaultValues, handleSubmit }) => {
     }
   }, [defaultValues, methods])
 
-  const onSubmit = (data: ITaskFormData) => {
+  const onSubmit = (data: any) => {
     handleSubmit(data);
   }
 

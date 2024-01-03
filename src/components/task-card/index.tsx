@@ -4,7 +4,7 @@ import EventRoundedIcon from '@mui/icons-material/EventRounded';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 
 import Card from "@/ui/card"
-import { CardFrame } from "@/ui/card/card.style";
+import { CardFrame } from "@/ui/card/model/card.style";
 import { ITaskCardProps } from "@/components/task-card/model/task-card.type";
 import { renderLabels } from "@/components/task-card/model/task-card.utils";
 
@@ -18,7 +18,7 @@ const TaskCard: FC<ITaskCardProps> = ({ labels, title, description, date, handle
                 </Box>
             </CardFrame>
             <Box sx={{ marginTop: ({ spacing }) => spacing(2) }}>
-                <Typography component={'h3'} variant={'h6'}>{title}</Typography>
+                <Typography component={'h3'} variant={'h3'}>{title}</Typography>
                 <Typography variant={'body1'} sx={{ marginTop: ({ spacing }) => spacing() }}>{description}</Typography>
             </Box>
             <Divider sx={{ margin: ({ spacing }) => `${spacing(3)} 0` }} />

@@ -11,6 +11,8 @@ const CTextField: FC<ICTextFieldProps> = ({ name, ...rest }) => {
   useEffect(() => {
     if (methods.formState.errors[name]) {
       setError(true);
+    } else {
+      setError(false)
     }
   }, [methods.formState.errors[name], name])
 

@@ -1,6 +1,6 @@
-import { styled, Box } from "@mui/material";
+import { styled, Box } from '@mui/material';
 
-export const Column = styled(Box)(
+export const StyledColumn = styled(Box)(
     ({ theme }) => ({
         display: 'flex',
         flexDirection: 'column',

@@ -1,5 +1,5 @@
 import Sidebar from "@/components/sidebar";
-import { useCustomTheme } from "@/shared/model/hooks/use-custom-theme";
+import { useCustomTheme } from "@/shared/model/hooks/custom-theme";
 import { Box } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";

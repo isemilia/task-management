@@ -1,8 +1,8 @@
-import { FC } from "react";
-import { Box, Paper } from "@mui/material";
+import { FC } from 'react';
+import { Box, Paper } from '@mui/material';
 
-import LoginForm from "@/components/login-form";
-import ActionTitle from "@/ui/action-title";
+import LoginForm from '@/components/login-form';
+import ActionTitle from '@/ui/action-title';
 
 const Login: FC = () => {
 	const handleSubmit = (data: any) => {

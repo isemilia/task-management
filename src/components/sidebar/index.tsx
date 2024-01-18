@@ -1,17 +1,17 @@
-import { FC } from "react";
+import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { Box } from "@mui/material";
+import { Box } from '@mui/material';
 import CloseFullscreenRoundedIcon from '@mui/icons-material/CloseFullscreenRounded';
 import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import OpenInFullRoundedIcon from '@mui/icons-material/OpenInFullRounded';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 
-import { useCustomTheme } from "@/shared/model/hooks/use-custom-theme";
+import { useCustomTheme } from '@/shared/model/hooks/custom-theme';
 import { Drawer } from '@/components/sidebar/model/sidebar.style';
-import { ISidebarProps } from "@/components/sidebar/model/sidebar.type";
-import SidebarItem from "@/components/sidebar/components/sidebar-item";
+import { ISidebarProps } from '@/components/sidebar/model/sidebar.type';
+import SidebarItem from '@/components/sidebar/components/sidebar-item';
 
 const Sidebar: FC<ISidebarProps> = ({ isOpen, toggleSidebar }) => {
     const theme = useCustomTheme();

@@ -1,6 +1,7 @@
 import { FC, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Paper } from '@mui/material';
+import { useCookies } from 'react-cookie';
 
 import LoginForm from '@/components/login-form';
 import ActionTitle from '@/ui/action-title';
@@ -9,7 +10,7 @@ import { useAppDispatch, useAppSelector } from '@/shared/model/hooks/redux';
 import { setToken, setUser } from '@/shared/redux/auth-slice';
 
 const Login: FC = () => {
-  const user = useAppSelector(state => state.auth.user);
+  const [_, setCookie] = useCookies(['token']);
 
   const [postLogin, loginReq] = useLoginMutation();
 
@@ -20,9 +21,11 @@ const Login: FC = () => {
     if (loginReq.isSuccess) {
       const { data } = loginReq.data;
 
-      console.log(data.user)
       dispatch(setUser(data.user));
       dispatch(setToken(data.token));
+
+      setCookie('token', data.token, { maxAge: 60 * 60 * 24 });
+
       navigate('/');
     }
   }, [loginReq.isLoading, loginReq.isSuccess, loginReq.isError]);

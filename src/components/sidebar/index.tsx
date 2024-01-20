@@ -19,8 +19,6 @@ const Sidebar: FC<ISidebarProps> = ({ isOpen, toggleSidebar }) => {
 	const theme = useCustomTheme();
 	const user = useAppSelector(state => state.auth.user);
 
-	console.log(user);
-
 	const navOptions = [
 		{ icon: <HomeRoundedIcon />, label: 'Home', name: 'home', href: '/' },
 		{ icon: <DashboardRoundedIcon />, label: 'Tasks', name: 'board', href: '/tasks' },

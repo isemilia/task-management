@@ -16,12 +16,13 @@ const Login: FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  console.log(loginReq);
-
   useEffect(() => {
     if (loginReq.isSuccess) {
-      dispatch(setUser(loginReq.data.user));
-      dispatch(setToken(loginReq.data.token));
+      const { data } = loginReq.data;
+
+      console.log(data.user)
+      dispatch(setUser(data.user));
+      dispatch(setToken(data.token));
       navigate('/');
     }
   }, [loginReq.isLoading, loginReq.isSuccess, loginReq.isError]);

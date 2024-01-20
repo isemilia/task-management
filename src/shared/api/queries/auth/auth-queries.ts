@@ -7,6 +7,8 @@ const authApi = api.injectEndpoints({
       query: ({ body }: ILoginArgs) => ({
         url: '/auth/login',
         method: 'POST',
+        // allow the server to receive the cookies
+        credentials: 'include',
         body
       }),
     }),

@@ -1,22 +1,22 @@
-import { FC } from "react";
+import { FC } from 'react';
 import {
     Route,
     Routes,
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import Home from "@/pages/home";
-import Login from "@/pages/login";
-import Signup from "@/pages/signup";
-import Tasks from "@/pages/tasks";
-import Dashboard from "./dashboard";
+import Home from '@/pages/home';
+import Login from '@/pages/login';
+import Signup from '@/pages/signup';
+import Tasks from '@/pages/tasks';
+import Dashboard from './dashboard';
 
 const routes = [
     {
-        path: "/",
+        path: '/',
         element: <Home />,
     },
     {
-        path: "/tasks",
+        path: '/tasks',
         element: <Tasks />,
     }
 ];

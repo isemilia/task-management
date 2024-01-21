@@ -1,6 +1,6 @@
 import { FC, ReactNode, createContext, useEffect, useState } from 'react';
 
-import { useGetMeQuery } from '@/shared/api/queries/auth/auth-queries';
+import { useGetMeQuery } from '@/shared/api';
 import { useCookies } from 'react-cookie';
 
 interface IAuthContext {

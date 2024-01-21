@@ -1,14 +1,14 @@
-import { FC, useEffect } from "react";
-import { Box, Button } from "@mui/material";
+import { FC, useEffect } from 'react';
+import { Box, Button } from '@mui/material';
 import { useForm, FormProvider } from 'react-hook-form';
 
-import CTextField from '@/components/form-controlled/controlled-text-field';
+import CTextField from '@/components/controlled-text-field';
 import { ITaskFormData, ITaskFormProps } from '@/components/task-form/model/task-form.type';
-import { FormFooter, FormLayout } from "@/ui/layouts/form";
-import { testStatuses } from "@/shared/data/data";
-import CSelect from "@/components/form-controlled/controlled-select";
-import { yupResolver } from "@hookform/resolvers/yup";
-import schema from "./model/task-form.schema";
+import { FormFooter, FormLayout } from '@/ui/layouts/form';
+import { testStatuses } from '@/shared/data/data';
+import CSelect from '@/components/controlled-select';
+import { yupResolver } from '@hookform/resolvers/yup';
+import schema from './model/task-form.schema';
 
 const TaskForm: FC<ITaskFormProps> = ({ defaultValues, handleSubmit }) => {
   const methods = useForm({

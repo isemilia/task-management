@@ -4,7 +4,7 @@ import { Box, Button } from '@mui/material';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { FormLayout } from '@/ui/layouts/form';
-import CTextField from '../form-controlled/controlled-text-field';
+import CTextField from '@/components/controlled-text-field';
 import { ISignupFormProps } from './model/signup-form.type';
 import schema from './model/signup-form.schema';
 

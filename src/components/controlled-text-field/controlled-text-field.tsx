@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import { Box, TextField, Typography } from '@mui/material';
-import { ICTextFieldProps } from '@/components/form-controlled/controlled-text-field/model/controlled-text-field.type';
+import { ICTextFieldProps } from '@/components/controlled-text-field/resources/controlled-text-field.model';
 
 const CTextField: FC<ICTextFieldProps> = ({ name, ...rest }) => {
   const methods = useFormContext();
@@ -33,11 +33,11 @@ const CTextField: FC<ICTextFieldProps> = ({ name, ...rest }) => {
               />
               {
                 isError &&
-                <Typography variant={'caption'} sx={{ color: ({ palette }) => palette.error.main }}>
-                  <>
-                    {methods.formState.errors[name]?.message}
-                  </>
-                </Typography>
+                  <Typography variant={'caption'} sx={{ color: ({ palette }) => palette.error.main }}>
+                      <>
+                        {methods.formState.errors[name]?.message}
+                      </>
+                  </Typography>
               }
             </Box>
           )

@@ -50,7 +50,7 @@ const AuthProvider: FC<{ children?: ReactNode }> = ({ children }) => {
     }
   }, [cookies?.token, meReq.isFetching, meReq.isSuccess, meReq.isError])
 
-  console.log(user, isAuth);
+  // console.log(user, isAuth);
 
   return (
     <AuthContext.Provider value={{ user, isAuth, invalidateSession }}>

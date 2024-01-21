@@ -6,6 +6,7 @@ import { testTasks, testStatuses } from '@/shared/data/data';
 import EditTask from '@/features/edit-task';
 import CreateTask from '@/features/create-task';
 import TaskColumn from './components/column';
+import { useGetMyTasksQuery } from '@/shared/api/queries/tasks';
 
 const Tasks: FC = () => {
   const [currentTask, setCurrentTask] = useState<null | number>(null);
@@ -13,6 +14,10 @@ const Tasks: FC = () => {
 
   const [isEditModalOpen, setEditModalOpen] = useState(false);
   const [isCreateModalOpen, setCreateModalOpen] = useState(false);
+
+  const tasksReq = useGetMyTasksQuery({});
+
+  console.log(tasksReq);
 
   const toggleEditModal = () => setEditModalOpen(state => !state);
   const openCreateModal = (status: number) => {

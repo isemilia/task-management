@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material';
 
-import App from '@/app/index.tsx';
+import App from '@/app';
 import theme from '@/app/theme';
 
 import 'normalize.css';

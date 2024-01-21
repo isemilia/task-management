@@ -1,5 +1,5 @@
 import { ITaskFormProps } from "@/components/task-form/resources/task-form.model";
-import { IModalProps } from "@/ui/modal/model/modal.type";
+import { IModalProps } from "@/ui/modal/resources/modal.model";
 
 export interface IEditTaskProps {
     isOpen: IModalProps['isOpen'];

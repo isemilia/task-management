@@ -3,7 +3,7 @@ import AddRoundedIcon from '@mui/icons-material/AddRounded';
 
 import Card from "@/ui/card";
 import { Chip, IconButton } from "@mui/material";
-import { CardFrame } from "@/ui/card/model/card.style";
+import { CardFrame } from "@/ui/card/resources/card.styles";
 import { ICcolumnHeaderProps } from "@/pages/tasks/components/column-header/column-header.type";
 
 

@@ -1,7 +1,7 @@
-import { FC } from "react";
+import { FC } from 'react';
+import { FormControl, InputLabel, MenuItem, Select as MuiSelect } from '@mui/material';
 
-import { FormControl, InputLabel, MenuItem, Select as MuiSelect } from "@mui/material";
-import { ISelectProps } from "./model/select.type";
+import { ISelectProps } from './resources/select.model';
 
 const Select: FC<ISelectProps> = ({ label, options, handleSelect, ...rest }) => {
   return (

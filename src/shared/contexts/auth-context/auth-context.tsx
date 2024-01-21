@@ -15,7 +15,7 @@ const AuthContext = createContext(defaultValue);
 
 const AuthProvider: FC<{ children?: ReactNode }> = ({ children }) => {
   const navigateToLogin = useNavigateToLogin();
-  const [cookies] = useCookies(['token']);
+  const [cookies, setCookie, removeCookie] = useCookies(['token']);
   const meReq = useGetMeQuery({});
 
   const [user, setUser] = useState<IAuthContext['user']>(null);

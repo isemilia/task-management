@@ -1,5 +1,5 @@
 import { api } from '@/shared/api/base'
-import { ILoginArgs } from './auth-queries.type'
+import { ILoginArgs, ISignupArgs } from './auth-queries.type'
 
 const authApi = api.injectEndpoints({
   endpoints: (build) => ({
@@ -15,8 +15,15 @@ const authApi = api.injectEndpoints({
         url: '/auth/me',
         method: 'GET'
       })
+    }),
+    signup: build.mutation({
+      query: ({ body }: ISignupArgs) => ({
+        url: '/auth/signup',
+        method: 'POST',
+        body
+      })
     })
   }),
 })
 
-export const { useLoginMutation, useGetMeQuery } = authApi
+export const { useLoginMutation, useGetMeQuery, useSignupMutation } = authApi

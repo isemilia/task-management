@@ -8,13 +8,12 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import OpenInFullRoundedIcon from '@mui/icons-material/OpenInFullRounded';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 
-import { useCustomTheme } from '@/shared/model/hooks/custom-theme';
-import { useAppSelector } from '@/shared/model/hooks/redux';
+import { useCustomTheme } from '@/shared/hooks/custom-theme';
 
 import { Drawer } from '@/components/sidebar/model/sidebar.style';
 import { ISidebarProps } from '@/components/sidebar/model/sidebar.type';
 import SidebarItem from '@/components/sidebar/components/sidebar-item';
-import { AuthContext } from '@/app/auth-context';
+import { AuthContext } from '@/shared/contexts/auth-context';
 
 const Sidebar: FC<ISidebarProps> = ({ isOpen, toggleSidebar }) => {
 	const theme = useCustomTheme();

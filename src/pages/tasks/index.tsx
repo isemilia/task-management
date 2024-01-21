@@ -5,7 +5,7 @@ import CreateTask from '@/features/create-task';
 import { StyledColumn } from '@/pages/tasks/model/tasks.style';
 import TaskCard from '@/components/task-card';
 import ColumnHeader from '@/pages/tasks/components/column-header';
-import { testTasks, testStatuses } from '@/shared/model/data/data';
+import { testTasks, testStatuses } from '@/shared/data/data';
 import EditTask from '@/features/edit-task';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import TaskColumn from './components/column';

@@ -2,7 +2,7 @@ import { FC, ReactNode, createContext, useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 
 import { useGetMeQuery } from '@/shared/api';
-import { useNavigateToLogin } from '@/shared/model/hooks';
+import { useNavigateToLogin } from '@/shared/hooks';
 import { IAuthContext } from './resources/auth-context.type';
 
 const defaultValue: IAuthContext = {

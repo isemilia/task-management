@@ -1,10 +1,10 @@
 import { FC } from 'react';
-
-import { Box } from '@mui/material';
-import AppRouter from './router/router';
 import { Provider } from 'react-redux';
+import { Box } from '@mui/material';
+
+import AppRouter from './router';
 import { store } from './store';
-import { AuthProvider } from './auth-context';
+import { AuthProvider } from '@/shared/contexts/auth-context';
 
 const App: FC = () => {
 

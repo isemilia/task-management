@@ -1,4 +1,4 @@
-import { ITaskFormProps } from "@/components/task-form/model/task-form.type";
+import { ITaskFormProps } from "@/components/task-form/resources/task-form.model";
 import { IModalProps } from "@/ui/modal/model/modal.type";
 
 export interface IEditTaskProps {

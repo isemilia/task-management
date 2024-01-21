@@ -1,5 +1,5 @@
 import TaskForm from "@/components/task-form"
-import { ITaskFormData } from "@/components/task-form/model/task-form.type"
+import { ITaskFormData } from "@/components/task-form/resources/task-form.model"
 import Modal from "@/ui/modal"
 import ActionTitle from "@/ui/action-title"
 import { FC, useState } from "react"

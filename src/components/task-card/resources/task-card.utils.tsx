@@ -1,5 +1,6 @@
-import { Chip } from "@mui/material";
-import { ITaskCardProps } from "@/components/task-card/model/task-card.type";
+import { Chip } from '@mui/material';
+
+import { ITaskCardProps } from '@/components/task-card/resources/task-card.model';
 
 export const renderLabels = (labels: ITaskCardProps['labels']) => {
     if (labels) {

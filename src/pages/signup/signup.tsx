@@ -1,7 +1,7 @@
 import { FC, useContext, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
-import { useNavigate } from 'react-router-dom';
-import { Box, Paper } from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom';
+import { Box, Paper, Link as MuiLink, Typography } from '@mui/material';
 
 import SignupForm from '@/components/signup-form';
 import ActionTitle from '@/ui/action-title';
@@ -46,6 +46,9 @@ const Signup: FC = () => {
       <Paper sx={{ padding: ({ spacing }) => spacing(5) }}>
         <ActionTitle>Create an account</ActionTitle>
         <SignupForm handleSubmit={handleSubmit} />
+        <Typography sx={{ marginTop: ({ spacing }) => spacing(4) }}>
+          Already have an account? <Link to={'/login'}> <MuiLink component={'span'}>Log in</MuiLink></Link>
+        </Typography>
       </Paper>
     </Box>
   );

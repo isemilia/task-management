@@ -1,6 +1,6 @@
 import { FC, useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Box, Paper } from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom';
+import { Box, Paper, Typography, Link as MuiLink } from '@mui/material';
 import { useCookies } from 'react-cookie';
 
 import LoginForm from '@/components/login-form';
@@ -46,6 +46,9 @@ const Login: FC = () => {
       <Paper sx={{ padding: ({ spacing }) => spacing(5) }}>
         <ActionTitle>Log in</ActionTitle>
         <LoginForm handleSubmit={handleSubmit} />
+        <Typography sx={{ marginTop: ({ spacing }) => spacing(4) }}>
+          Don't have an account? <Link to={'/signup'}> <MuiLink component={'span'}>Sign up</MuiLink></Link>
+        </Typography>
       </Paper>
     </Box>
   )

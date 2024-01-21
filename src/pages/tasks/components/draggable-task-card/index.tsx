@@ -2,7 +2,7 @@ import TaskCard from '@/components/task-card';
 import { Box } from '@mui/material';
 import { FC } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
-import { IDraggableTaskCardProps } from '../../model/tasks.type';
+import { IDraggableTaskCardProps } from '../../resources/tasks.model';
 
 const DraggableTaskCard: FC<IDraggableTaskCardProps> = ({ task, index, handleEdit }) => {
   return (

@@ -3,9 +3,9 @@ import { Box } from '@mui/material';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import TaskCard from '@/components/task-card';
-import { StyledColumn } from '@/pages/tasks/model/tasks.style';
+import { StyledColumn } from '@/pages/tasks/resources/tasks.styles';
 import ColumnHeader from '../column-header';
-import { IColumnProps } from '../../model/tasks.type';
+import { IColumnProps } from '../../resources/tasks.model';
 import DraggableTaskCard from '../draggable-task-card';
 
 const TaskColumn: FC<IColumnProps> = ({ status, tasks, handleCreate, handleEdit }) => {

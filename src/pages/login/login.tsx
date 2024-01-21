@@ -22,6 +22,9 @@ const Login: FC = () => {
 
       navigate('/');
     }
+    if (loginReq.isError) {
+      console.error(loginReq.error);
+    }
   }, [loginReq.isLoading, loginReq.isSuccess, loginReq.isError]);
 
   const handleSubmit = (data: any) => {

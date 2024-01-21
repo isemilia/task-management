@@ -13,8 +13,6 @@ const Signup: FC = () => {
 
   const navigate = useNavigate();
 
-  console.log(signupReq);
-
   useEffect(() => {
     if (signupReq.isSuccess) {
       const { result } = signupReq.data;
@@ -22,6 +20,9 @@ const Signup: FC = () => {
       setCookie('token', result.token, { maxAge: 60 * 60 * 24 });
 
       navigate('/');
+    }
+    if (signupReq.isError) {
+      console.error(signupReq.error);
     }
   }, [signupReq.isLoading, signupReq.isSuccess, signupReq.isError]);
 

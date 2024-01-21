@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { Box } from '@mui/material';
@@ -14,10 +14,11 @@ import { useAppSelector } from '@/shared/model/hooks/redux';
 import { Drawer } from '@/components/sidebar/model/sidebar.style';
 import { ISidebarProps } from '@/components/sidebar/model/sidebar.type';
 import SidebarItem from '@/components/sidebar/components/sidebar-item';
+import { AuthContext } from '@/app/auth-context';
 
 const Sidebar: FC<ISidebarProps> = ({ isOpen, toggleSidebar }) => {
 	const theme = useCustomTheme();
-	const user = useAppSelector(state => state.auth.user);
+	const { user } = useContext(AuthContext);
 
 	const navOptions = [
 		{ icon: <HomeRoundedIcon />, label: 'Home', name: 'home', href: '/' },

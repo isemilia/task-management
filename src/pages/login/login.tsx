@@ -19,12 +19,12 @@ const Login: FC = () => {
 
   useEffect(() => {
     if (loginReq.isSuccess) {
-      const { data } = loginReq.data;
+      const { result } = loginReq.data;
 
-      dispatch(setUser(data.user));
-      dispatch(setToken(data.token));
+      dispatch(setUser(result.user));
+      dispatch(setToken(result.token));
 
-      setCookie('token', data.token, { maxAge: 60 * 60 * 24 });
+      setCookie('token', result.token, { maxAge: 60 * 60 * 24 });
 
       navigate('/');
     }

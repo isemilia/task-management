@@ -7,12 +7,16 @@ const authApi = api.injectEndpoints({
       query: ({ body }: ILoginArgs) => ({
         url: '/auth/login',
         method: 'POST',
-        // allow the server to receive the cookies
-        credentials: 'include',
         body
       }),
     }),
+    getMe: build.query({
+      query: () => ({
+        url: '/auth/me',
+        method: 'GET'
+      })
+    })
   }),
 })
 
-export const { useLoginMutation } = authApi
+export const { useLoginMutation, useGetMeQuery } = authApi

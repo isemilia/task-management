@@ -1,7 +1,7 @@
 import { Box, IconButton, Typography } from '@mui/material'
 import { FC } from 'react'
 import { useCustomTheme } from '@/shared/hooks/custom-theme'
-import { ISidebarItemProps } from '@/components/sidebar/components/sidebar-item/sidebar-item.type';
+import { ISidebarItemProps } from './resources/sidebar-item.model';
 
 const SidebarItem: FC<ISidebarItemProps> = ({
   onClick = () => ({}),

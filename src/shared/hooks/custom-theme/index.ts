@@ -1,6 +1,3 @@
-import { useTheme } from '@mui/material'
-import customTheme from '@/app/theme'
+import {useCustomTheme} from '@/shared/hooks/custom-theme/use-custom-theme';
 
-export const useCustomTheme = () => {
-    return useTheme<typeof customTheme>()
-} 
+export {useCustomTheme};

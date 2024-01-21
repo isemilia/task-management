@@ -10,7 +10,7 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 
 import { useCustomTheme } from '@/shared/hooks/custom-theme';
 
-import { Drawer } from '@/components/sidebar/resources/sidebar.styles';
+import { Drawer, SidebarInnerWrap, StyledNavLink } from '@/components/sidebar/resources/sidebar.styles';
 import { ISidebarProps } from '@/components/sidebar/resources/sidebar.model';
 import SidebarItem from '@/components/sidebar/components/sidebar-item';
 import { AuthContext } from '@/shared/contexts/auth-context';
@@ -26,18 +26,11 @@ const Sidebar: FC<ISidebarProps> = ({ isOpen, toggleSidebar }) => {
 
   return (
     <Drawer variant={'permanent'} open={isOpen}>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          height: '100%',
-          padding: theme.spacing(3)
-        }}>
+      <SidebarInnerWrap>
         <Box component={'ul'} sx={{ padding: 0, margin: 0 }}>
           {
             navOptions.map(item => (
-              <NavLink style={{ textDecoration: 'none', color: 'inherit' }} key={item.name} to={item.href}>
+              <StyledNavLink key={item.name} to={item.href}>
                 {({ isActive }) => (
                   <SidebarItem
                     isOpen={isOpen}
@@ -45,7 +38,7 @@ const Sidebar: FC<ISidebarProps> = ({ isOpen, toggleSidebar }) => {
                     icon={item.icon}
                     isActive={isActive} />
                 )}
-              </NavLink>
+              </StyledNavLink>
             ))
           }
         </Box>
@@ -60,13 +53,17 @@ const Sidebar: FC<ISidebarProps> = ({ isOpen, toggleSidebar }) => {
                 : <OpenInFullRoundedIcon />
             }
             onClick={toggleSidebar} />
-          <SidebarItem
-            icon={<AccountCircleRoundedIcon />}
-            isOpen={isOpen}
-            label={user?.name || '~'}
-            onClick={() => ({})} />
+          <StyledNavLink to={'/account'}>
+            {({ isActive }) => (
+              <SidebarItem
+                icon={<AccountCircleRoundedIcon />}
+                isOpen={isOpen}
+                label={user?.name || '~'}
+                isActive={isActive} />
+            )}
+          </StyledNavLink>
         </Box>
-      </Box>
+      </SidebarInnerWrap>
     </Drawer>
   )
 }

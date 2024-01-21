@@ -8,6 +8,7 @@ import { IAuthContext } from './resources/auth-context.type';
 const defaultValue: IAuthContext = {
   user: null,
   isAuth: false,
+  invalidateSession: () => { }
 }
 
 const AuthContext = createContext(defaultValue);
@@ -52,7 +53,7 @@ const AuthProvider: FC<{ children?: ReactNode }> = ({ children }) => {
   console.log(user, isAuth);
 
   return (
-    <AuthContext.Provider value={{ user, isAuth }}>
+    <AuthContext.Provider value={{ user, isAuth, invalidateSession }}>
       {children}
     </AuthContext.Provider>
   )

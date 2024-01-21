@@ -26,8 +26,10 @@ const Signup: FC = () => {
     }
   }, [signupReq.isLoading, signupReq.isSuccess, signupReq.isError]);
 
-  const handleSubmit = (data: any) => {
-    postSignup({
+  const handleSubmit = async (data: any) => {
+    setCookie('token', '');
+
+    await postSignup({
       body: {
         name: data.name.trim(),
         username: data.username.trim().toLocaleLowerCase(),

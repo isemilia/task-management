@@ -27,8 +27,9 @@ const Login: FC = () => {
     }
   }, [loginReq.isLoading, loginReq.isSuccess, loginReq.isError]);
 
-  const handleSubmit = (data: any) => {
-    postLogin({
+  const handleSubmit = async (data: any) => {
+    setCookie('token', '');
+    await postLogin({
       body: {
         username: data.username.trim().toLocaleLowerCase(),
         password: data.password.trim(),

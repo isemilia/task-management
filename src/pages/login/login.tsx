@@ -6,23 +6,17 @@ import { useCookies } from 'react-cookie';
 import LoginForm from '@/components/login-form';
 import ActionTitle from '@/ui/action-title';
 import { useLoginMutation } from '@/shared/api/queries/auth/auth-queries';
-import { useAppDispatch, useAppSelector } from '@/shared/model/hooks/redux';
-import { setToken, setUser } from '@/shared/redux/auth-slice';
 
 const Login: FC = () => {
   const [_, setCookie] = useCookies(['token']);
 
   const [postLogin, loginReq] = useLoginMutation();
 
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (loginReq.isSuccess) {
       const { result } = loginReq.data;
-
-      dispatch(setUser(result.user));
-      dispatch(setToken(result.token));
 
       setCookie('token', result.token, { maxAge: 60 * 60 * 24 });
 

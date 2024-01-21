@@ -8,6 +8,7 @@ import Home from '@/pages/home';
 import Login from '@/pages/login';
 import Signup from '@/pages/signup';
 import Tasks from '@/pages/tasks';
+import Account from '@/pages/account';
 import Dashboard from './dashboard';
 
 const routes = [
@@ -18,6 +19,10 @@ const routes = [
     {
         path: '/tasks',
         element: <Tasks />,
+    },
+    {
+        path: '/account',
+        element: <Account />,
     }
 ];
 

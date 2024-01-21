@@ -1,4 +1,5 @@
-import { CSSObject, Drawer as MuiDrawer, Theme, styled } from "@mui/material";
+import { Box, CSSObject, Drawer as MuiDrawer, Theme, styled } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 
 const drawerWidth = 250;
@@ -37,3 +38,16 @@ export const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop: string) => p
         }),
     }),
 );
+
+export const StyledNavLink = styled(NavLink)(() => ({
+    textDecoration: 'none',
+    color: 'inherit'
+}));
+
+export const SidebarInnerWrap = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    height: '100%',
+    padding: theme.spacing(3)
+}));

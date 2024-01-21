@@ -5,4 +5,5 @@ export interface IAuthContext {
     username: string
   } | null
   isAuth: boolean
+  invalidateSession: () => void
 }

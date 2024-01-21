@@ -1,14 +1,16 @@
-import { FC, useEffect } from 'react';
+import { FC, useContext, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
-import { useNavigate } from 'react-router-dom';
-import { Box, Paper } from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom';
+import { Box, Paper, Link as MuiLink, Typography } from '@mui/material';
 
 import SignupForm from '@/components/signup-form';
 import ActionTitle from '@/ui/action-title';
 import { useSignupMutation } from '@/shared/api';
+import { AuthContext } from '@/shared/contexts/auth-context';
 
 const Signup: FC = () => {
-  const [_, setCookie] = useCookies(['token']);
+  const [cookies, setCookie, removeCookie] = useCookies(['token']);
+  const { isAuth } = useContext(AuthContext);
   const [postSignup, signupReq] = useSignupMutation();
 
   const navigate = useNavigate();
@@ -19,16 +21,17 @@ const Signup: FC = () => {
 
       setCookie('token', result.token, { maxAge: 60 * 60 * 24 });
 
-      navigate('/');
+      if (isAuth) {
+        navigate('/');
+      }
     }
     if (signupReq.isError) {
+      removeCookie('token');
       console.error(signupReq.error);
     }
-  }, [signupReq.isLoading, signupReq.isSuccess, signupReq.isError]);
+  }, [signupReq.isLoading, signupReq.isSuccess, signupReq.isError, isAuth]);
 
   const handleSubmit = async (data: any) => {
-    setCookie('token', '');
-
     await postSignup({
       body: {
         name: data.name.trim(),
@@ -43,6 +46,9 @@ const Signup: FC = () => {
       <Paper sx={{ padding: ({ spacing }) => spacing(5) }}>
         <ActionTitle>Create an account</ActionTitle>
         <SignupForm handleSubmit={handleSubmit} />
+        <Typography sx={{ marginTop: ({ spacing }) => spacing(4) }}>
+          Already have an account? <Link to={'/login'}> <MuiLink component={'span'}>Log in</MuiLink></Link>
+        </Typography>
       </Paper>
     </Box>
   );

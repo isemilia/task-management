@@ -14,7 +14,7 @@ const DraggableTaskCard: FC<IDraggableTaskCardProps> = ({ task, index, handleEdi
           {...provided.dragHandleProps}>
           <TaskCard
             key={task.id}
-            date={task.date}
+            date={task.deadline}
             title={task.title}
             description={task.description}
             handleEdit={() => handleEdit(task.id)} />

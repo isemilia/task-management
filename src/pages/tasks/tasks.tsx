@@ -1,11 +1,12 @@
 import { Box } from '@mui/material';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 
 import { testTasks, testStatuses } from '@/shared/data/data';
 import EditTask from '@/features/edit-task';
 import CreateTask from '@/features/create-task';
 import TaskColumn from './components/column';
+import { useGetMyTasksQuery } from '@/shared/api/queries/tasks';
 
 const Tasks: FC = () => {
   const [currentTask, setCurrentTask] = useState<null | number>(null);
@@ -13,6 +14,24 @@ const Tasks: FC = () => {
 
   const [isEditModalOpen, setEditModalOpen] = useState(false);
   const [isCreateModalOpen, setCreateModalOpen] = useState(false);
+
+  const [tasks, setTasks] = useState<any[]>([])
+
+  const tasksReq = useGetMyTasksQuery({});
+
+  useEffect(() => {
+    if (tasksReq.isSuccess) {
+      const { result } = tasksReq.data;
+      if (result.tasks && Array.isArray(result.tasks)) {
+        setTasks(result.tasks);
+      } else {
+        console.error('Invalid task format');
+      }
+    }
+    if (tasksReq.isError) {
+      setTasks([]);
+    }
+  }, [tasksReq.isError, tasksReq.isFetching, tasksReq.isSuccess])
 
   const toggleEditModal = () => setEditModalOpen(state => !state);
   const openCreateModal = (status: number) => {
@@ -31,7 +50,7 @@ const Tasks: FC = () => {
               <TaskColumn
                 key={status.id}
                 status={status}
-                tasks={testTasks.filter(task => task.status.id === status.id)}
+                tasks={tasks.filter(task => task.status.id === status.id)}
                 handleCreate={() => openCreateModal(status.id)}
                 handleEdit={(taskId) => {
                   setCurrentTask(taskId);

@@ -15,7 +15,7 @@ const AuthContext = createContext(defaultValue);
 
 const AuthProvider: FC<{ children?: ReactNode }> = ({ children }) => {
   const navigateToLogin = useNavigateToLogin();
-  const [cookies] = useCookies(['token']);
+  const [cookies, setCookie, removeCookie] = useCookies(['token']);
   const meReq = useGetMeQuery({});
 
   const [user, setUser] = useState<IAuthContext['user']>(null);
@@ -50,7 +50,7 @@ const AuthProvider: FC<{ children?: ReactNode }> = ({ children }) => {
     }
   }, [cookies?.token, meReq.isFetching, meReq.isSuccess, meReq.isError])
 
-  console.log(user, isAuth);
+  // console.log(user, isAuth);
 
   return (
     <AuthContext.Provider value={{ user, isAuth, invalidateSession }}>

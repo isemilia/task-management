@@ -9,19 +9,22 @@ const authApi = api.injectEndpoints({
         method: 'POST',
         body
       }),
+      invalidatesTags: ['me']
     }),
     getMe: build.query({
       query: () => ({
         url: '/auth/me',
         method: 'GET'
-      })
+      }),
+      providesTags: ['me']
     }),
     signup: build.mutation({
       query: ({ body }: ISignupArgs) => ({
         url: '/auth/signup',
         method: 'POST',
         body
-      })
+      }),
+      invalidatesTags: ['me']
     })
   }),
 })

@@ -7,6 +7,10 @@ import { useAppDispatch, useNavigateToLogin } from '@/shared/hooks';
 import { IAuthContext } from './resources/auth-context.type';
 import { api } from '@/shared/api/base';
 
+interface IInvalidateSessionFn {
+  (arg?: { goToLogin?: boolean }): void
+}
+
 const defaultValue: IAuthContext = {
   user: null,
   isAuth: false,
@@ -27,15 +31,18 @@ const AuthProvider: FC<{ children?: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<IAuthContext['user']>(null);
   const [isAuth, setAuth] = useState(false);
 
-  const invalidateSession = () => {
+  const invalidateSession: IInvalidateSessionFn = ({ goToLogin = true } = {}) => {
     setUser(null);
     setAuth(false);
     removeCookie('token');
-    navigateToLogin();
+
+    if (goToLogin) {
+      navigateToLogin();
+    }
   }
 
   useEffect(() => {
-    if (!cookies?.token) {
+    if (!cookies?.token || meReq.isError) {
       dispatch(api.util.resetApiState());
     }
   }, [isAuth, user, cookies?.token]);
@@ -49,11 +56,10 @@ const AuthProvider: FC<{ children?: ReactNode }> = ({ children }) => {
   }, [cookies?.token]);
 
   useEffect(() => {
-    if (!cookies?.token) {
+    if (!cookies?.token || meReq.isError) {
       invalidateSession();
     }
-  }, [pathname])
-
+  }, [pathname]);
 
   useEffect(() => {
     if (meReq.isSuccess && !meReq.isFetching) {
@@ -63,6 +69,7 @@ const AuthProvider: FC<{ children?: ReactNode }> = ({ children }) => {
         setAuth(true);
       }
     }
+
     if (meReq.isError) {
       invalidateSession();
       console.error(meReq.error);

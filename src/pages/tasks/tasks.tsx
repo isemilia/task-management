@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { FC, useEffect, useState } from 'react';
-import { DragDropContext } from 'react-beautiful-dnd';
+import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 
 import { testTasks, testStatuses } from '@/shared/data/data';
 import EditTask from '@/features/edit-task';
@@ -39,10 +39,14 @@ const Tasks: FC = () => {
     setCreateModalOpen(state => !state);
   }
 
+  const handleDragEnd = (result: DropResult) => {
+    const task = result.draggableId;
+    const column = result.destination?.droppableId;
+    console.log(task, column);
+  }
+
   return (
-    <DragDropContext onDragEnd={(result) => {
-      console.log(result);
-    }}>
+    <DragDropContext onDragEnd={handleDragEnd}>
       <Box sx={{ display: 'grid', gridAutoColumns: 'clamp(200px, 100%, 340px)', gap: ({ spacing }) => spacing(5), gridAutoFlow: 'column' }}>
         {
           testStatuses.map(status => {

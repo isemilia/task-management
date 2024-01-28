@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { Box } from '@mui/material';
+import { FC, Fragment } from 'react';
+import { Box, alpha } from '@mui/material';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import TaskCard from '@/components/task-card';
@@ -16,26 +16,35 @@ const TaskColumn: FC<IColumnProps> = ({ status, tasks, handleCreate, handleEdit 
         handleCreate={handleCreate} />
 
       <Droppable droppableId={`${status.id}`}>
-        {(provided, snapshot) => (
-          <Box
-            sx={{
-              display: 'grid',
-              gap: ({ spacing }) => spacing(5),
-            }}
-            ref={provided.innerRef}
-            {...provided.droppableProps}>
-            {
-              tasks
-                .map((task, i) => (
-                  <DraggableTaskCard
-                    key={task.id}
-                    handleEdit={(handleEdit)}
-                    index={i}
-                    task={task} />
-                ))
-            }
-          </Box>
-        )}
+        {(provided, snapshot) => {
+          return (
+            <Box
+              key={status.id}
+              sx={{
+                display: 'grid',
+                gap: ({ spacing }) => spacing(5),
+                ...(snapshot.isDraggingOver ? {
+                  background: ({ palette }) => alpha(palette.primary.light, 0.1),
+                } : {})
+              }}
+              ref={provided.innerRef}
+              {...provided.droppableProps}>
+              {
+                tasks
+                  .map((task, i) => {
+                    return (
+                      <DraggableTaskCard
+                        key={task._id}
+                        handleEdit={(handleEdit)}
+                        index={i}
+                        task={task} />
+                    )
+                  })
+              }
+              {provided.placeholder}
+            </Box>
+          )
+        }}
       </Droppable>
 
     </StyledColumn>

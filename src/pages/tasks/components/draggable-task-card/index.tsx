@@ -7,18 +7,26 @@ import { IDraggableTaskCardProps } from '../../resources/tasks.model';
 const DraggableTaskCard: FC<IDraggableTaskCardProps> = ({ task, index, handleEdit }) => {
   return (
     <Draggable draggableId={`${task._id}`} index={index}>
-      {(provided, snapshot) => (
-        <Box
-          ref={provided.innerRef}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}>
-          <TaskCard
-            date={task.deadline}
-            title={task.title}
-            description={task.description}
-            handleEdit={() => handleEdit(task.id)} />
-        </Box>
-      )}
+      {(provided, snapshot) => {
+        console.log(snapshot)
+        return (
+          <Box
+            ref={provided.innerRef}
+            sx={{
+              ...(snapshot.isDropAnimating ? {
+                paddingBottom: ({ spacing }) => spacing(5)
+              } : {})
+            }}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}>
+            <TaskCard
+              date={task.deadline}
+              title={task.title}
+              description={task.description}
+              handleEdit={() => handleEdit(task.id)} />
+          </Box>
+        )
+      }}
     </Draggable>
   )
 }

@@ -42,7 +42,7 @@ const AuthProvider: FC<{ children?: ReactNode }> = ({ children }) => {
   }
 
   useEffect(() => {
-    if (!cookies?.token || meReq.isError) {
+    if (!cookies?.token || meReq.isError || meReq.isFetching) {
       dispatch(api.util.resetApiState());
     }
   }, [isAuth, user, cookies?.token]);

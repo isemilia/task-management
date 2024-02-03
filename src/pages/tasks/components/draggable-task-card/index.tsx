@@ -8,7 +8,6 @@ const DraggableTaskCard: FC<IDraggableTaskCardProps> = ({ task, index, handleEdi
   return (
     <Draggable draggableId={`${task._id}`} index={index}>
       {(provided, snapshot) => {
-        console.log(snapshot)
         return (
           <Box
             ref={provided.innerRef}

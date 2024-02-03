@@ -41,8 +41,9 @@ const Tasks: FC = () => {
 
   const handleDragEnd = (result: DropResult) => {
     const task = result.draggableId;
-    const column = result.destination?.droppableId;
-    console.log(result);
+    const to = result.destination?.droppableId;
+    const from = result.source?.droppableId;
+    console.log(task, to, from);
   }
 
   return (

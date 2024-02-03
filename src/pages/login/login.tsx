@@ -17,12 +17,12 @@ const Login: FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (loginReq.isSuccess && !loginReq.isLoading) {
+    if (loginReq.isSuccess) {
       const { result } = loginReq.data;
 
       setCookie('token', result.token, { maxAge: 60 * 60 * 24 });
 
-      navigate('/'); // check if user really exists before navigating
+      navigate('/');
     }
     if (loginReq.isError) {
       removeCookie('token');

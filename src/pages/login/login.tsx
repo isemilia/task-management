@@ -10,7 +10,7 @@ import { AuthContext } from '@/shared/contexts/auth-context';
 
 const Login: FC = () => {
   const [cookies, setCookie, removeCookie] = useCookies(['token']);
-  const { isAuth } = useContext(AuthContext);
+  const { isAuth, user } = useContext(AuthContext);
 
   const [postLogin, loginReq] = useLoginMutation();
 
@@ -22,9 +22,7 @@ const Login: FC = () => {
 
       setCookie('token', result.token, { maxAge: 60 * 60 * 24 });
 
-      if (isAuth) {
-        navigate('/');
-      }
+      navigate('/');
     }
     if (loginReq.isError) {
       removeCookie('token');

@@ -18,31 +18,34 @@ const TaskColumn: FC<IColumnProps> = ({ status, tasks, handleCreate, handleEdit 
       <Droppable droppableId={`${status.id}`}>
         {(provided, snapshot) => {
           return (
-            <Box
-              key={status.id}
-              sx={{
-                display: 'grid',
-                gap: ({ spacing }) => spacing(5),
-                ...(snapshot.isDraggingOver ? {
-                  background: ({ palette }) => alpha(palette.primary.light, 0.1),
-                } : {})
-              }}
-              ref={provided.innerRef}
-              {...provided.droppableProps}>
-              {
-                tasks
-                  .map((task, i) => {
-                    return (
-                      <DraggableTaskCard
-                        key={task._id}
-                        handleEdit={(handleEdit)}
-                        index={i}
-                        task={task} />
-                    )
-                  })
-              }
+            <>
+              <Box
+                key={status.id}
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: ({ spacing }) => spacing(5),
+                  ...(snapshot.isDraggingOver ? {
+                    background: ({ palette }) => alpha(palette.primary.light, 0.1),
+                  } : {})
+                }}
+                ref={provided.innerRef}
+                {...provided.droppableProps}>
+                {
+                  tasks
+                    .map((task, i) => {
+                      return (
+                        <DraggableTaskCard
+                          key={task._id}
+                          handleEdit={(handleEdit)}
+                          index={i}
+                          task={task} />
+                      )
+                    })
+                }
+              </Box>
               {provided.placeholder}
-            </Box>
+            </>
           )
         }}
       </Droppable>

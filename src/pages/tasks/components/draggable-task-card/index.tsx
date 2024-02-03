@@ -12,9 +12,7 @@ const DraggableTaskCard: FC<IDraggableTaskCardProps> = ({ task, index, handleEdi
           <Box
             ref={provided.innerRef}
             sx={{
-              ...(snapshot.isDropAnimating ? {
-                paddingBottom: ({ spacing }) => spacing(5)
-              } : {})
+              padding: '10px 0'
             }}
             {...provided.draggableProps}
             {...provided.dragHandleProps}>
@@ -26,7 +24,7 @@ const DraggableTaskCard: FC<IDraggableTaskCardProps> = ({ task, index, handleEdi
           </Box>
         )
       }}
-    </Draggable>
+    </Draggable >
   )
 }
 

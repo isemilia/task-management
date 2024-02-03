@@ -48,7 +48,7 @@ const Tasks: FC = () => {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <Box sx={{ display: 'grid', gridAutoColumns: 'clamp(200px, 100%, 340px)', gap: ({ spacing }) => spacing(5), gridAutoFlow: 'column' }}>
+      <Box sx={{ display: 'grid', gridAutoColumns: 'clamp(200px, 100%, 340px)', gap: ({ spacing }) => spacing(5), gridAutoFlow: 'column', height: '100%' }}>
         {
           testStatuses.map(status => {
             return (

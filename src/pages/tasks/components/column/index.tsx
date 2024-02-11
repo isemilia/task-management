@@ -24,7 +24,7 @@ const TaskColumn: FC<IColumnProps> = ({ status, tasks, handleCreate, handleEdit 
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: ({ spacing }) => spacing(5),
+                  // gap: ({ spacing }) => spacing(5),
                   ...(snapshot.isDraggingOver ? {
                     background: ({ palette }) => alpha(palette.primary.light, 0.1),
                   } : {})
@@ -43,8 +43,8 @@ const TaskColumn: FC<IColumnProps> = ({ status, tasks, handleCreate, handleEdit 
                       )
                     })
                 }
+                {provided.placeholder}
               </Box>
-              {provided.placeholder}
             </>
           )
         }}

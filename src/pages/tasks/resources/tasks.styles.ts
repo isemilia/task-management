@@ -7,3 +7,13 @@ export const StyledColumn = styled(Box)(
         gap: theme.spacing(5)
     })
 );
+
+export const StyledColumnWrap = styled(Box)(
+    ({ theme }) => ({
+        display: 'grid',
+        gridAutoColumns: 'clamp(200px, 100%, 340px)',
+        gap: theme.spacing(5),
+        gridAutoFlow: 'column',
+        height: '100%',
+    })
+);

@@ -4,28 +4,32 @@ import { FC } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { IDraggableTaskCardProps } from '../../resources/tasks.model';
 
-const DraggableTaskCard: FC<IDraggableTaskCardProps> = ({ task, index, handleEdit }) => {
+const DraggableTaskCard: FC<IDraggableTaskCardProps> = ({
+  task,
+  index,
+  handleEdit,
+}) => {
   return (
     <Draggable draggableId={`${task._id}`} index={index}>
       {(provided, snapshot) => {
         return (
           <Box
             ref={provided.innerRef}
-            sx={{
-              padding: '10px 0'
-            }}
+            sx={{pb: ({spacing}) => spacing(5)}}
             {...provided.draggableProps}
-            {...provided.dragHandleProps}>
+            {...provided.dragHandleProps}
+          >
             <TaskCard
               date={task.deadline}
               title={task.title}
               description={task.description}
-              handleEdit={() => handleEdit(task.id)} />
+              handleEdit={() => handleEdit(task.id)}
+            />
           </Box>
-        )
+        );
       }}
-    </Draggable >
-  )
-}
+    </Draggable>
+  );
+};
 
 export default DraggableTaskCard;

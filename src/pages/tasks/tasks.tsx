@@ -6,7 +6,7 @@ import { testTasks, testStatuses } from '@/shared/data/data';
 import EditTask from '@/features/edit-task';
 import CreateTask from '@/features/create-task';
 import TaskColumn from './components/column';
-import { useGetMyTasksQuery } from '@/shared/api/queries/tasks';
+import {useGetMyTasksQuery, useUpdateTaskMutation} from '@/shared/api/queries/tasks';
 import { StyledColumnWrap } from './resources/tasks.styles';
 import TasksSkeleton from './components/tasks-skeleton';
 
@@ -20,6 +20,7 @@ const Tasks: FC = () => {
   const [tasks, setTasks] = useState<any[]>([]);
 
   const tasksReq = useGetMyTasksQuery({});
+  const [updateTask, updateReq] = useUpdateTaskMutation();
 
   useEffect(() => {
     if (tasksReq.isSuccess) {
@@ -45,10 +46,22 @@ const Tasks: FC = () => {
     const task = result.draggableId;
     const to = result.destination?.droppableId;
     const from = result.source?.droppableId;
-    console.log(task, to, from);
+
+    if (to && to !== from) {
+      updateTask({
+        id: task,
+        status: { id: +to }
+      })
+    }
+
+    // console.log(task, to, from);
   };
 
   if (tasksReq.isLoading) {
+    return <TasksSkeleton />;
+  }
+
+  if (updateReq.isLoading || (tasksReq.isFetching && updateReq.isSuccess)) {
     return <TasksSkeleton />;
   }
 

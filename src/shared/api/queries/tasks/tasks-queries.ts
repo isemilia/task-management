@@ -1,5 +1,5 @@
 import { api } from '@/shared/api/base';
-import {ICreateTaskBody} from '@/shared/api/queries/tasks/resources/tasks-queries.model.ts';
+import {ICreateTaskBody, IUpdateTaskArgs} from '@/shared/api/queries/tasks/resources/tasks-queries.model.ts';
 
 const tasksApi = api.injectEndpoints({
   endpoints: (build) => ({
@@ -22,8 +22,18 @@ const tasksApi = api.injectEndpoints({
         }
       }),
       invalidatesTags: ['tasks']
+    }),
+    updateTask: build.mutation({
+      query: ({id, ...rest}: IUpdateTaskArgs) => {
+        return {
+          url: `/tasks/${id}`,
+          method: 'PATCH',
+          body: rest
+        }
+      },
+      invalidatesTags: ['tasks']
     })
   })
 })
 
-export const { useGetMyTasksQuery, useCreateTaskMutation } = tasksApi
+export const { useGetMyTasksQuery, useCreateTaskMutation, useUpdateTaskMutation } = tasksApi

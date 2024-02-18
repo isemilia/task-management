@@ -7,8 +7,15 @@ import Card from '@/ui/card'
 import { CardFrame } from '@/ui/card/resources/card.styles';
 import { ITaskCardProps } from '@/components/task-card/resources/task-card.model';
 import { renderLabels } from '@/components/task-card/resources/task-card.utils';
+import formatDate from '@/shared/utils/format-date';
 
 const TaskCard: FC<ITaskCardProps> = ({ labels, title, description, date, handleEdit }) => {
+
+  const formattedDate = +date
+    ? formatDate({
+      date: +date
+    })
+    : '-'
 
   return (
     <Card>
@@ -26,7 +33,7 @@ const TaskCard: FC<ITaskCardProps> = ({ labels, title, description, date, handle
         <Box sx={{ display: 'flex', alignItems: 'center', gap: ({ spacing }) => spacing(2) }}>
           <EventRoundedIcon />
           <Box component={'span'} sx={{ fontSize: ({ typography }) => typography.body2, paddingTop: '2px' }}>
-            {date}
+            {formattedDate}
           </Box>
         </Box>
         <IconButton size={'small'} onClick={() => handleEdit()}>

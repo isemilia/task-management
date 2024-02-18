@@ -48,7 +48,7 @@ const Tasks: FC = () => {
     console.log(task, to, from);
   };
 
-  if (tasksReq.isFetching) {
+  if (tasksReq.isLoading) {
     return <TasksSkeleton />;
   }
 

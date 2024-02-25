@@ -1,1 +1,1 @@
-export { default } from './formate-date.ts'
+export { default } from './format-date.ts'

@@ -9,7 +9,6 @@ const authApi = api.injectEndpoints({
         method: 'POST',
         body
       }),
-      invalidatesTags: ['me']
     }),
     getMe: build.query({
       query: () => ({

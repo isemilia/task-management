@@ -7,6 +7,7 @@ import { FormLayout } from '@/ui/layouts/form';
 import CTextField from '@/components/controlled-text-field';
 import { ISignupFormProps } from './resources/signup-form.model';
 import schema from './resources/signup-form.schema';
+import CPasswordInput from '@/components/controlled-password-input';
 
 const SignupForm: FC<ISignupFormProps> = ({ handleSubmit }) => {
   const methods = useForm({
@@ -38,7 +39,7 @@ const SignupForm: FC<ISignupFormProps> = ({ handleSubmit }) => {
               required
               label={'Username'}
               autoComplete={'off'} />
-            <CTextField
+            <CPasswordInput
               name={'password'}
               required
               label={'Password'}

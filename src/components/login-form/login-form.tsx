@@ -6,6 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import CTextField from '@/components/controlled-text-field';
 import { FormLayout } from '@/ui/layouts/form';
 import schema from './resources/login-form.schema';
+import CPasswordInput from '@/components/controlled-password-input';
 
 const LoginForm: FC<{ handleSubmit: (data: any) => void }> = ({ handleSubmit }) => {
   const methods = useForm({
@@ -29,7 +30,7 @@ const LoginForm: FC<{ handleSubmit: (data: any) => void }> = ({ handleSubmit }) 
               name="username"
               required
               label={'Username'} />
-            <CTextField
+            <CPasswordInput
               name="password"
               required
               label={'Password'} />

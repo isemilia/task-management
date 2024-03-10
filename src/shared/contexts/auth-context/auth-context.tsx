@@ -31,6 +31,7 @@ const AuthProvider: FC<{ children?: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<IAuthContext['user']>(null);
   const [isAuth, setAuth] = useState(false);
 
+  console.log(user, isAuth)
   const invalidateSession: IInvalidateSessionFn = ({ goToLogin = true } = {}) => {
     setUser(null);
     setAuth(false);
@@ -42,28 +43,14 @@ const AuthProvider: FC<{ children?: ReactNode }> = ({ children }) => {
   }
 
   useEffect(() => {
-    if (!cookies?.token || meReq.isError) {
-      dispatch(api.util.resetApiState());
-    }
-  }, [isAuth, user, cookies?.token]);
-
-  useEffect(() => {
     if (cookies?.token) {
       meReq.refetch();
-    } else {
-      invalidateSession();
     }
   }, [cookies?.token]);
 
   useEffect(() => {
-    if (!cookies?.token || meReq.isError) {
-      invalidateSession();
-    }
-  }, [pathname]);
-
-  useEffect(() => {
-    if (meReq.isSuccess && !meReq.isFetching) {
-      const { result } = meReq.data;
+    if (!meReq.isFetching && meReq.isSuccess) {
+      const { result } = meReq.data
       if (result?.user) {
         setUser(result.user);
         setAuth(true);
@@ -75,6 +62,13 @@ const AuthProvider: FC<{ children?: ReactNode }> = ({ children }) => {
       console.error(meReq.error);
     }
   }, [cookies?.token, meReq.isFetching, meReq.isSuccess, meReq.isError])
+
+  useEffect(() => {
+    if (!cookies?.token || meReq.isError) {
+      dispatch(api.util.resetApiState());
+      invalidateSession();
+    }
+  }, [isAuth, user, cookies?.token, pathname]);
 
   // console.log(user, isAuth);
 

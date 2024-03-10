@@ -17,12 +17,14 @@ import { AuthContext } from '@/shared/contexts/auth-context';
 
 const Sidebar: FC<ISidebarProps> = ({ isOpen, toggleSidebar }) => {
   const theme = useCustomTheme();
-  const { user } = useContext(AuthContext);
+  const { user, isAuth } = useContext(AuthContext);
 
   const navOptions = [
     { icon: <HomeRoundedIcon />, label: 'Home', name: 'home', href: '/' },
     { icon: <DashboardRoundedIcon />, label: 'Tasks', name: 'board', href: '/tasks' },
   ]
+
+  // console.log(user, isAuth)
 
   return (
     <Drawer variant={'permanent'} open={isOpen}>
@@ -58,7 +60,7 @@ const Sidebar: FC<ISidebarProps> = ({ isOpen, toggleSidebar }) => {
               <SidebarItem
                 icon={<AccountCircleRoundedIcon />}
                 isOpen={isOpen}
-                label={user?.name || '~'}
+                label={user ? user.name : '~'}
                 isActive={isActive} />
             )}
           </StyledNavLink>

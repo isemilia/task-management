@@ -10,7 +10,7 @@ import { AuthContext } from '@/shared/contexts/auth-context';
 
 const Login: FC = () => {
   const [cookies, setCookie, removeCookie] = useCookies(['token']);
-  const { isAuth, user } = useContext(AuthContext);
+  // const { isAuth, user, invalidateSession } = useContext(AuthContext);
 
   const [postLogin, loginReq] = useLoginMutation();
 
@@ -28,7 +28,7 @@ const Login: FC = () => {
       removeCookie('token');
       console.error(loginReq.error);
     }
-  }, [loginReq.isLoading, loginReq.isSuccess, loginReq.isError, isAuth]);
+  }, [loginReq.isLoading, loginReq.isSuccess, loginReq.isError]);
 
   const handleSubmit = async (data: any) => {
     await postLogin({

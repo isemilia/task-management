@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Box, Button, Paper } from '@mui/material';
+import { Box } from '@mui/material';
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -7,8 +7,10 @@ import CTextField from '@/components/controlled-text-field';
 import { FormLayout } from '@/ui/layouts/form';
 import schema from './resources/login-form.schema';
 import CPasswordInput from '@/components/controlled-password-input';
+import {InferType} from 'yup';
+import Button from '@/ui/button';
 
-const LoginForm: FC<{ handleSubmit: (data: any) => void }> = ({ handleSubmit }) => {
+const LoginForm: FC<{ handleSubmit: (data: any) => void; isSubmitting: boolean }> = ({ handleSubmit, isSubmitting }) => {
   const methods = useForm({
     defaultValues: {
       username: '',
@@ -17,7 +19,7 @@ const LoginForm: FC<{ handleSubmit: (data: any) => void }> = ({ handleSubmit }) 
     resolver: yupResolver(schema)
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: InferType<typeof schema>) => {
     handleSubmit(data);
   }
 
@@ -35,6 +37,7 @@ const LoginForm: FC<{ handleSubmit: (data: any) => void }> = ({ handleSubmit }) 
               required
               label={'Password'} />
             <Button
+              isLoading={isSubmitting}
               onClick={methods.handleSubmit(onSubmit)}
               variant={'contained'}
               type={'submit'}>Log in</Button>

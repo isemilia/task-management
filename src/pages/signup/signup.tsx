@@ -21,9 +21,7 @@ const Signup: FC = () => {
 
       setCookie('token', result.token, { maxAge: 60 * 60 * 24 });
 
-      if (isAuth) {
-        navigate('/');
-      }
+      navigate('/');
     }
     if (signupReq.isError) {
       removeCookie('token');
@@ -45,7 +43,7 @@ const Signup: FC = () => {
     <Box sx={{ minHeight: '100vh', display: 'grid', placeContent: 'center' }}>
       <Paper sx={{ padding: ({ spacing }) => spacing(5) }}>
         <ActionTitle>Create an account</ActionTitle>
-        <SignupForm handleSubmit={handleSubmit} />
+        <SignupForm handleSubmit={handleSubmit} isSubmitting={signupReq.isLoading} />
         <Typography sx={{ marginTop: ({ spacing }) => spacing(4) }}>
           Already have an account? <Link to={'/login'}> <MuiLink component={'span'}>Log in</MuiLink></Link>
         </Typography>

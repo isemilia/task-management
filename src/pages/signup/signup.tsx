@@ -21,9 +21,7 @@ const Signup: FC = () => {
 
       setCookie('token', result.token, { maxAge: 60 * 60 * 24 });
 
-      if (isAuth) {
-        navigate('/');
-      }
+      navigate('/');
     }
     if (signupReq.isError) {
       removeCookie('token');

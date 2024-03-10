@@ -43,7 +43,7 @@ const Login: FC = () => {
     <Box sx={{ minHeight: '100vh', display: 'grid', placeContent: 'center' }}>
       <Paper sx={{ padding: ({ spacing }) => spacing(5) }}>
         <ActionTitle>Log in</ActionTitle>
-        <LoginForm handleSubmit={handleSubmit} />
+        <LoginForm handleSubmit={handleSubmit} isSubmitting={loginReq.isLoading} />
         <Typography sx={{ marginTop: ({ spacing }) => spacing(4) }}>
           Don't have an account? <Link to={'/signup'}> <MuiLink component={'span'}>Sign up</MuiLink></Link>
         </Typography>

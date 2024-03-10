@@ -31,7 +31,7 @@ const AuthProvider: FC<{ children?: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<IAuthContext['user']>(null);
   const [isAuth, setAuth] = useState(false);
 
-  console.log(user, isAuth)
+  // console.log(user, isAuth)
   const invalidateSession: IInvalidateSessionFn = ({ goToLogin = true } = {}) => {
     setUser(null);
     setAuth(false);

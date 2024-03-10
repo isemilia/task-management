@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { FormLayout } from '@/ui/layouts/form';
@@ -8,8 +8,9 @@ import CTextField from '@/components/controlled-text-field';
 import { ISignupFormProps } from './resources/signup-form.model';
 import schema from './resources/signup-form.schema';
 import CPasswordInput from '@/components/controlled-password-input';
+import Button from '@/ui/button';
 
-const SignupForm: FC<ISignupFormProps> = ({ handleSubmit }) => {
+const SignupForm: FC<ISignupFormProps> = ({ handleSubmit, isSubmitting }) => {
   const methods = useForm({
     defaultValues: {
       name: '',
@@ -44,12 +45,13 @@ const SignupForm: FC<ISignupFormProps> = ({ handleSubmit }) => {
               required
               label={'Password'}
               autoComplete={'off'} />
-            <CTextField
+            <CPasswordInput
               name={'repeatPassword'}
               required
               label={'Repeat password'}
               autoComplete={'off'} />
             <Button
+              isLoading={isSubmitting}
               onClick={methods.handleSubmit(onSubmit)}
               variant={'contained'}
               type={'submit'}>Sign up</Button>

@@ -10,7 +10,7 @@
 ## Known issues
 - Cannot update tasks' content after creation 
 - Current user is not showing after a successful login (page refresh required)
-- When you visit the app for the first time, it might take a long time to load. That's because I'm using a free plan to host the backend, so it comes with various limitations
+- When you first visit the app, it might take a long time to load. That's because I'm using a free plan to host the backend, so it comes with various limitations
 - Logging in after a log out requires a page refresh to work
 
 ## Backend (in process)

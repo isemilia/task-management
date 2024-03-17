@@ -24,14 +24,13 @@ const AuthProvider: FC<{ children?: ReactNode }> = ({ children }) => {
   const [cookies, setCookie, removeCookie] = useCookies(['token']);
   const { pathname } = useLocation();
 
-  const meReq = useGetMeQuery({});
+  const meReq = useGetMeQuery({}, {skip: !cookies?.token});
 
   const dispatch = useAppDispatch();
 
   const [user, setUser] = useState<IAuthContext['user']>(null);
   const [isAuth, setAuth] = useState(false);
 
-  // console.log(user, isAuth)
   const invalidateSession: IInvalidateSessionFn = ({ goToLogin = true } = {}) => {
     setUser(null);
     setAuth(false);
@@ -68,7 +67,7 @@ const AuthProvider: FC<{ children?: ReactNode }> = ({ children }) => {
       dispatch(api.util.resetApiState());
       invalidateSession();
     }
-  }, [isAuth, user, cookies?.token, pathname]);
+  }, [cookies?.token, pathname]);
 
   // console.log(user, isAuth);
 
